@@ -1,0 +1,221 @@
+---
+title: "Proyecto_Final_9219"
+author: 
+- "Iván Aguilar Celis"
+- "Ana Paola Rivera Gallardo"
+format: pdf
+editor: visual
+---
+
+## Datos
+
+Estado: Guerrero
+
+Año de análisis: 1970
+
+Autores: Ana Paola Rivera Gallardo e Iván Aguilar Celis
+
+Materia: Demografía 9219
+
+## Introducción
+
+El presente documento tiene como objetivo analizar la estructura poblacional del estado de Guerrero en el año 1970, utilizando información proveniente de proyecciones demográficas oficiales. El estudio de la estructura por edad y sexo permite comprender las características fundamentales de la población en un momento determinado, así como identificar patrones del comportamiento demográfico.
+
+Para llevar a cabo este análisis se utiliza una pirámide poblacional, herramienta gráfica ampliamente empleada en demografía para representar la distribución de la población según grupos de edad y sexo. A través de esta representación es posible observar la proporción de hombres y mujeres en cada grupo de edad y reconocer tendencias demográficas como niveles de fecundidad, mortalidad y crecimiento poblacional.
+
+El análisis de la pirámide poblacional de Guerrero para el año 1970 permitirá comprender la dinámica demográfica del estado en ese periodo, así como identificar las características predominantes de su estructura poblacional.
+
+## Lectura del primer objeto de la web
+
+Lectura de la tabla de población mitad de año de las estimaciones-proyecciones de población de México:
+
+La demografía, busca capturar la fluidez de la vida humana a través del rigor matemático. El punto de partida de este análisis es la Ecuación de Balance, la herramienta más básica para entender cómo cambia una población en un tiempo determinado. En un sistema "cerrado" (donde no hay migración), la población futura se define simplemente por la población inicial más los nacimientos y menos las defunciones.
+
+El autor explica que los nacimientos y muertes ("flujos") dependen directamente del tamaño de la población existente ("stock"). Al analizar estas proporciones, nos alejamos del crecimiento aritmético para entrar en el terreno del crecimiento geométrico o exponencial. Bajo este modelo, si las tasas de natalidad y mortalidad se mantienen constantes, la población no solo crece, sino que su velocidad de aumento se acelera con el tiempo, dibujando una curva cada vez más pronunciada.
+
+Para los demógrafos, medir el crecimiento simplemente por la pendiente de una curva ascendente es insuficiente, ya que dicha pendiente cambia constantemente. La solución técnica es el uso de logaritmos naturales. Al aplicar logaritmos al tamaño de la población, la curva exponencial se convierte en una línea recta cuya pendiente, denominada $R$, representa la tasa de crecimiento proporcional.
+
+```{r, message = FALSE, warning = FALSE}
+
+# 1. Remover los objetos
+rm(list = ls())
+graphics.off()
+
+# 2. Instalar paquetes 
+# Se instalaron correctamente todos los paquetes
+
+# 3. Cargar paquetes
+library(tidyverse)
+library(readxl)
+library(mipfp)
+library(data.table)
+library(rstan)
+library(DemoTools)
+library(ggplot2)
+library(kableExtra)
+library(lubridate)
+library(dplyr)
+library(ggplot2)
+#library(pyramid)
+
+
+# 4. Descargar tablas de datos
+# pop <- fread("https://repodatos.atdt.gob.mx/CONAPO/proyecciones/00_Pob_Mitad_1950_2070.csv")
+
+pop <- fread("data/00_Pob_Mitad_1950_2070.csv")
+mort <- fread("https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_DeathsBySingleAgeSex_Medium_1950-2023.csv.gz")
+mort
+
+apv <- fread("https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationBySingleAgeSex_Medium_1950-2023.csv.gz")
+
+#mort <- fread("WPP2024_DeathsBySingleAgeSex_Medium_1950-2023.csv")
+
+# 5. Exploración de la tabla de población
+table(pop$ENTIDAD)
+table(pop$CVE_GEO)
+table(pop$ANIO)
+
+names(pop)
+sum(pop$POBLACION)
+
+```
+
+Pirámide poblacional de México. \[Párrafo con breve análisis de la pirámide\]
+
+```{r, echo = FALSE, fig.height = 5, fig.width = 8}
+# Preparar los datos para la pirámide
+pop_edo <- pop[ENTIDAD == "Guerrero" & ANIO == 1970, .(SEXO, EDAD, POBLACION)]
+
+# Convertir población masculina a valores negativos para graficar
+pop_edo[, POBLACION := ifelse(SEXO == "Hombres", -POBLACION, POBLACION)]
+
+# Graficar pirámide poblacional
+ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_flip() +
+  scale_y_continuous(labels = abs) +
+  labs(title = "Pirámide poblacional de Guerrero, 1970",
+  x = "Edad",
+  y = "Población") +
+  theme_minimal() +
+  scale_fill_manual(values = c("Hombres" = "steelblue", "Mujeres" = "indianred"))
+
+```
+
+## Lectura de tabla del mismo proyecto
+
+```{r}
+
+(deaths <- fread("data/Mx_ARG_GUA.csv"))
+kable(deaths, caption = "Muertes de Argentina y Guatemala")
+
+```
+
+## Escritura de funciones
+
+```{r}
+
+### Media Ponderada
+
+weight_mean <- function(x, w = rep(1/length(x), length(x))){
+  #La fórmula de la media poderada
+  x_mean <- sum(x*w)/sum(w)
+  return(x_mean)
+}
+
+#Ejemplo
+weight_mean(c(10, 40), c(.3, .7))     #con pesos
+weight_mean(c(10, 40), )              #sin pesos
+
+```
+
+##México
+
+```{r}
+
+### Crecimiento exponencial
+
+crecimiento_exp <- function(K_0, K_T, t_0, t_T, t){
+  dt <- decimal_date(as.Date(t_T)) - decimal_date(as.Date(t_0))
+  r <- log(K_T/ K_0)/dt
+  
+  h <- t - decimal_date(as.Date(t_0))
+  K_h <- K_0 * exp(r*h)
+  
+  return(K_h)
+}
+
+## Ejemplo
+
+cre_exp <- crecimiento_exp(K_0 = 112336538, K_T = 126014024, 
+                           t_0 = "2010-06-25", t_T = "2020-03-15",
+                           t = seq(2020.5,2100.5, 1))
+
+## Gráfica
+data.frame(Año = c(decimal_date(as.Date("2010-06-25")),
+                   decimal_date(as.Date("2020-03-15")), 
+                   seq(2020.5, 2100.5, 1)), 
+           K_T = c(112336538, 126014024, cre_exp)) %>% ggplot(aes(Año, K_T)) +         geom_line() + geom_point()
+
+```
+
+## Guerrero
+
+```{r}
+crecimiento_exp <- function(K_0, K_T, t_0, t_T, t){
+  dt <- decimal_date(as.Date(t_T)) - decimal_date(as.Date(t_0))
+  r <- log(K_T/ K_0)/dt
+  
+  h <- t - decimal_date(as.Date(t_0))
+  K_h <- K_0 * exp(r*h)
+  
+  return(K_h)
+}
+
+## Ejemplo
+
+cre_exp <- crecimiento_exp(K_0 = 3388768, K_T = 3540685, 
+                           t_0 = "2010-06-12", t_T = "2020-03-15",
+                           t = seq(2020.5,2100.5, 1))
+
+## Gráfica
+data.frame(Año = c(decimal_date(as.Date("2010-06-12")),
+                   decimal_date(as.Date("2020-03-15")), 
+                   seq(2020.5, 2100.5, 1)), 
+           K_T = c(3388768, 3540685, cre_exp)) %>% ggplot(aes(Año, K_T)) +         geom_line() + geom_point()
+```
+
+## Tasas brutas y específicas.
+
+```{r}
+
+##Buscar foto del código
+
+deaths <- deaths %>% 
+  mutate(m_x = D / N)
+
+argentina_data <- deaths %>% filter(location == "Argentina")
+
+plot(argentina_data$x, log(argentina_data$m_x), 
+     type = "b", 
+     main = "Logaritmo de tasas específicas (m_x) - Argentina")
+
+tasa_bruta <- deaths %>%
+  summarise(
+    tasa_bruta_manual = sum(D) / sum(N),
+    tasa_bruta_ponderada = weighted.mean(m_x, w = N)
+  )
+
+print(tasa_bruta)
+
+```
+
+# Elegir algún país para comparar con México
+
+## Conclusión
+
+La demografía busca capturar la fluidez de la vida humana a través de ciertos cálculos matemáticos. En Guerrero (1970), la pirámide poblacional revela una estructura expansiva con alta fecundidad, pero cuya rápida reducción en las edades avanzadas confirma una mortalidad todavía elevada para ese periodo.
+
+Al aplicar el modelo de crecimiento exponencial y calcular la tasa $R$ mediante logaritmos naturales, transformamos el proceso multiplicativo del cambio poblacional en una medida proporcional constante. Guerrero es una población abierta donde la migración es un componente crítico de su balance demográfico.
+
+Finalmente, el análisis de las tasas específicas de mortalidad ($m_x$) en escala logarítmica permite identificar riesgos proporcionales independientemente del volumen total de habitantes. Este estudio demuestra que las herramientas actuariales permiten interpretar el pasado con precisión científica, siempre bajo la advertencia de que los datos reales conservan un margen de incertidumbre inherente a las fuentes censales.
