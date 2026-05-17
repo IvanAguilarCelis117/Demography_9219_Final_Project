@@ -17,6 +17,7 @@ y una comparativa internacional con Noruega.
 
 ## Estructura del repositorio
 
+```text
 Demography_9219_Final_Project/
 ├── Proyecto_Final_9219.qmd         # Documento fuente en Quarto
 ├── Proyecto_Final_9219.pdf         # Informe final renderizado
@@ -26,6 +27,7 @@ Demography_9219_Final_Project/
 │   ├── Mx_ARG_GUA.csv                    # Tasas Argentina y Guatemala
 │   └── diagrama_flujo_tablas_vida.png    # Diagrama de flujo
 └── README.md
+```
 
 ## Fuentes de datos
 
