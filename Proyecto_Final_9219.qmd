@@ -1,29 +1,159 @@
 ---
-title: "Proyecto_Final_9219"
-author: 
-- "Iván Aguilar Celis"
-- "Ana Paola Rivera Gallardo"
-format: pdf
+title: ""
+format:
+  pdf:
+    toc: false
+    toc-depth: 2
+    toc-title: "Índice"
+    geometry:
+      - top=2.5cm
+      - bottom=2.5cm
+      - left=3cm
+      - right=3cm
+    fontsize: 11pt
+    linestretch: 1.3
+    include-in-header:
+      text: |
+        \usepackage{graphicx}
+        \usepackage{geometry}
+        \usepackage{xcolor}
+        \usepackage{fontspec}
+        \usepackage{tikz}
+        \usepackage{parskip}
+        \setlength{\parskip}{6pt}
+        \definecolor{guerrerorojo}{HTML}{8B1A1A}
+        \definecolor{guerrerodoro}{HTML}{C9A84C}
+        \definecolor{cremafondo}{HTML}{FAF7F2}
 editor: visual
 ---
+
+```{=latex}
+
+\newgeometry{top=0cm, bottom=0cm, left=0cm, right=0cm}
+\pagecolor{cremafondo}
+
+\begin{tikzpicture}[remember picture, overlay]
+  % Banda roja superior
+  \fill[guerrerorojo] (current page.north west) rectangle 
+    ([yshift=-6pt] current page.north east);
+  % Línea dorada superior
+  \fill[guerrerodoro] ([yshift=-6pt] current page.north west) rectangle 
+    ([yshift=-8pt] current page.north east);
+  % Banda roja inferior
+  \fill[guerrerorojo] (current page.south west) rectangle 
+    ([yshift=6pt] current page.south east);
+  % Línea dorada inferior
+  \fill[guerrerodoro] ([yshift=6pt] current page.south west) rectangle 
+    ([yshift=8pt] current page.south east);
+\end{tikzpicture}
+
+\vspace*{0.8cm}
+
+% ── Encabezado con logos ────────────────────────────────────────────────────
+\noindent\hspace{1.2cm}%
+\begin{minipage}[c]{0.35\textwidth}
+  \includegraphics[height=1.5cm]{data/UNAM-Logo.png}\hspace{8pt}%
+  \includegraphics[height=1.5cm]{data/FC-Logo.png}
+\end{minipage}%
+\hfill%
+\begin{minipage}[c]{0.45\textwidth}\raggedleft
+  {\small\color{gray}
+    \textbf{Universidad Nacional Autónoma de México}\\
+    Facultad de Ciencias\\
+    Demografía 9219}
+\end{minipage}\hspace{1.2cm}
+
+\vspace{0.4cm}
+{\color{guerrerodoro}\noindent\rule{\textwidth}{0.5pt}}
+\vspace{0.3cm}
+
+% ── Imagen del estado ───────────────────────────────────────────────────────
+\begin{center}
+  \includegraphics[width=0.6\textwidth, height=7cm, keepaspectratio=false,
+    clip]{data/Foto de Guerrero.jpg}
+  
+  \vspace{0.15cm}
+  {\footnotesize\color{gray}\textit{Guerrero, México}}
+\end{center}
+
+\vspace{0.6cm}
+
+% ── Título principal ────────────────────────────────────────────────────────
+\begin{center}
+  {\small\color{guerrerorojo}\textsc{Proyecto Final — Demografía}}
+  
+  \vspace{0.4cm}
+  {\LARGE\bfseries Estado de Guerrero}
+  
+  \vspace{0.3cm}
+  {\large\itshape Análisis demográfico en el estado de Guerrero, 2010–2021}
+  
+  \vspace{0.5cm}
+  {\color{guerrerodoro}\rule{4cm}{1.5pt}}
+\end{center}
+
+\vspace{0.5cm}
+
+% ── Chips de años ──────────────────────────────────────────────────────────
+\begin{center}
+\colorbox{guerrerorojo}{\color{white}\small\hspace{4pt}2010\hspace{4pt}}%
+\colorbox{guerrerorojo}{\color{white}\small\hspace{4pt}2019\hspace{4pt}}%
+\colorbox{guerrerorojo}{\color{white}\small\hspace{4pt}2021\hspace{4pt}}
+\end{center}
+
+\vspace{0.6cm}
+
+% ── Resumen ─────────────────────────────────────────────────────────────────
+\begin{center}
+\begin{minipage}{0.82\textwidth}
+  \small\color{gray}
+  Se construyeron tablas de vida por sexo para el estado de Guerrero en los años
+  2010, 2019 y 2021, empleando defunciones del INEGI. El análisis documenta el efecto    de la pandemia de COVID-19 sobre la esperanza de vida, en el contexto de alta          marginación y violencia estructural que caracterizan a la entidad.
+\end{minipage}
+\end{center}
+
+\vspace{0.5cm}
+
+% ── Metadatos ───────────────────────────────────────────────────────────────
+\begin{center}
+\begin{tabular}{p{7cm} p{7cm}}
+  \small\color{gray}\textbf{Autores} & 
+  \small\color{gray}\textbf{Fuentes de datos} \\
+  \small Iván Aguilar Celis & 
+  \small INEGI · WPP\\
+  \small Ana Paola Rivera Gallardo & 
+\end{tabular}
+\end{center}
+
+\vspace*{\fill}
+
+% ── Pie de página ───────────────────────────────────────────────────────────
+{\color{guerrerodoro}\noindent\rule{\textwidth}{0.5pt}}
+\vspace{0.2cm}
+
+\noindent\hspace{1.2cm}%
+{\small\color{gray} Demografía 9219 — Facultad de Ciencias, UNAM}%
+\hfill%
+{\small\color{gray} Mayo 2026}\hspace{1.2cm}
+
+\newpage
+\restoregeometry
+\nopagecolor
+
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+\newpage
+
+```
+
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-## Datos
-
-Estado: Guerrero
-
-Año de análisis: 1970, 2010, 2019, 2021
-
-Autores: Ana Paola Rivera Gallardo e Iván Aguilar Celis
-
-Materia: Demografía 9219
-
 ## Introducción
 
-El presente documento tiene como objetivo principal analizar la estructura poblacional y la dinámica demográfica del estado de Guerrero a lo largo de distintos periodos (1970, 2010, 2019 y 2021, pero no centramos más en las últimas tres periodos). A través del uso de proyecciones oficiales y registros vitales, con datos tomados del INEGI pricipalmente, se examinan herramientas demográficas como las pirámides poblacionales, los modelos de crecimiento exponencial y la construcción matemática de tablas de vida. 
+El presente documento tiene como objetivo principal analizar la estructura poblacional y la dinámica demográfica del estado de Guerrero a lo largo de distintos periodos (2010, 2019 y 2021). A través del uso de proyecciones oficiales y registros vitales, con datos tomados del INEGI pricipalmente, se examinan herramientas demográficas como las pirámides poblacionales, los modelos de crecimiento exponencial y la construcción matemática de tablas de vida. 
 
 El estudio de la estructura por edad y sexo permite comprender las características fundamentales de la población, observando la transición de una demografía de alta fecundidad durante 1970, hacia una estructura más envejecida en años recientes. Asimismo, se evalúa cómo fenómenos sistémicos e históricos en el aspecto social, tales como la alta marginación, la sobremortalidad masculina por violencia estructural y el impacto de la pandemia de COVID-19 en 2021, han moldeado la esperanza de vida en la entidad. Para contextualizar metodológicamente estos hallazgos, se incluye también una breve comparativa internacional que sirve de referencia para analizar el comportamiento esperado de las tasas específicas de mortalidad.
 
@@ -51,7 +181,7 @@ Según CONAPO (2020), Guerrero ocupa el **primer lugar nacional en marginación*
 El siguiente diagrama muestra el proceso completo para la construcción 
 de las tablas de vida de Guerrero para los años 2010, 2019 y 2021.
 
-![Diagrama de flujo: construcción de tablas de vida](data/diagrama_flujo_tablas_vida.png){width=90%}
+![Diagrama de flujo: construcción de tablas de vida](data/diagrama_flujo_tablas_vida.png){width=70%}
 
 ## Formulas utilizadas
 
@@ -128,7 +258,7 @@ Las estadísticas de mortalidad se estructuran mediante "tablas de vida", las cu
 
 Finalmente, cuando el análisis exige un mayor nivel de detalle, se abandonan los supuestos de homogeneidad para abordar resultados heterogéneos, como las distintas causas de defunción. Esto se estudia mediante tablas de vida de "múltiples decrementos", las cuales evalúan a poblaciones que sufren pérdidas por una multiplicidad de causas. Estos modelos se basan en la teoría de "riesgos en competencia", analizando diferentes enfermedades que compiten para arrebatar la vida de los individuos. Mediante el uso de funciones de riesgo, los demógrafos pueden aislar los efectos de causas específicas y calcular probabilidades teóricas, como la probabilidad de morir por otras causas si se lograra eliminar una enfermedad en particular, construyendo así tablas de eliminación de causas.
 
-```{r, echo= FALSE, message = FALSE, warning = FALSE}
+```{r, echo= FALSE, message = FALSE, warning = FALSE, output = FALSE}
 
 # 1. Remover los objetos
 rm(list = ls())
@@ -157,12 +287,11 @@ library(openxlsx2)
 # pop <- fread("https://repodatos.atdt.gob.mx/CONAPO/proyecciones/00_Pob_Mitad_1950_2070.csv")
 
 pop <- fread("data/00_Pob_Mitad_1950_2070.csv")
-mort <- fread("https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_DeathsBySingleAgeSex_Medium_1950-2023.csv.gz")
-mort
 
-apv <- fread("https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationBySingleAgeSex_Medium_1950-2023.csv.gz")
-
-#mort <- fread("WPP2024_DeathsBySingleAgeSex_Medium_1950-2023.csv")
+mort_m <- read_excel("data/WPP2024_deaths_m.xlsx", sheet = "Estimates", skip = 16)
+mort_f <- read_excel("data/WPP2024_deaths_f.xlsx", sheet = "Estimates", skip = 16)
+pop_m  <- read_excel("data/WPP2024_population_m.xlsx", sheet = "Estimates", skip = 16)
+pop_f  <- read_excel("data/WPP2024_population_f.xlsx", sheet = "Estimates", skip = 16)
 
 # 5. Exploración de la tabla de población
 table(pop$ENTIDAD)
@@ -174,7 +303,7 @@ sum(pop$POBLACION)
 
 ```
 
-### Pirámide poblacional de México 1970.
+### Pirámide poblacional de Guerrero 1970.
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
 # Preparar los datos para la pirámide
@@ -196,9 +325,9 @@ ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
 
 ```
 
-Base muy ancha con reducción rápida hacia edades mayores. Estructura expansiva típica de alta fecundidad y alta mortalidad. La población es predominantemente joven.
+Base muy ancha con reducción rápida hacia edades mayores. Estructura expansiva típica de alta fecundidad y alta mortalidad. La población es predominantemente joven, se agregó esta pirámide poblacional para mostrar un contraste entre los demás periodos más.
 
-### Pirámide poblacional de México 2010. 
+### Pirámide poblacional de Guerrero 2010. 
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
 
@@ -223,7 +352,7 @@ ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
 
 La base se estrecha respecto a 1970, indicando inicio de transición demográfica con menor fecundidad. Se nota una protuberancia en edades de 20-40 años. Los hombres presentan una ligera contracción en edades de 25-35 consistente con la violencia.
 
-### Pirámide poblacional de México 2019. 
+### Pirámide poblacional de Guerrero 2019. 
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
 
@@ -248,7 +377,7 @@ ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
 
 Base aún más estrecha que 2010, consolidando la transición demográfica. El engrosamiento en edades medias es más visible. La estructura se acerca a una pirámide estacionaria, lo que quiere decir que tiene tasas de natalidad y mortalidad bajas y estables.
 
-### Pirámide poblacional de México 2021. 
+### Pirámide poblacional de Guerrero 2021. 
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
 
@@ -340,7 +469,7 @@ kable(def_tabla,
 
 ## Escritura de funciones
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, results = 'hide'}
 
 ### Media Ponderada
 
@@ -439,7 +568,7 @@ ggplot(argentina_data, aes(x = x, y = log(m_x), group = 1)) +
 
 ## Tasas brutas y específicas (Guerrero [2010, 2019, 2021]).
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, results = 'hide'}
 
 ### Limpiamos el Excel de defunciones
 
@@ -480,7 +609,7 @@ nrow(pop_guerrero)  # debe dar 114
 
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, results = 'hide'}
 
 # 0. Leer el Excel
 def_raw <- read_excel("data/INEGI(Defunciones Guerrero).xlsx", skip = 4)
@@ -585,43 +714,69 @@ table(def_guerrero$GRUPO)
 
 ```{r, echo = FALSE}
 
-### 3. Obtener población expuesta (N) de CONAPO
+### 3. Obtener población expuesta (N) a mitad de año
+# Fórmula: N(t + 0.5) = N(t) * exp(0.5 * r),  r = log(N(t+1) / N(t))
 
 grupos_orden <- c("0","1-4","5-9","10-14","15-19","20-24","25-29",
                   "30-34","35-39","40-44","45-49","50-54","55-59",
                   "60-64","65-69","70-74","75-79","80-84","85+")
 
-pop_guerrero <- pop %>%
+# Función para agregar por grupo quinquenal
+agrupar_pop <- function(datos) {
+  datos %>%
+    mutate(GRUPO = case_when(
+      EDAD == 0                ~ "0",
+      EDAD >= 1  & EDAD <= 4  ~ "1-4",
+      EDAD >= 5  & EDAD <= 9  ~ "5-9",
+      EDAD >= 10 & EDAD <= 14 ~ "10-14",
+      EDAD >= 15 & EDAD <= 19 ~ "15-19",
+      EDAD >= 20 & EDAD <= 24 ~ "20-24",
+      EDAD >= 25 & EDAD <= 29 ~ "25-29",
+      EDAD >= 30 & EDAD <= 34 ~ "30-34",
+      EDAD >= 35 & EDAD <= 39 ~ "35-39",
+      EDAD >= 40 & EDAD <= 44 ~ "40-44",
+      EDAD >= 45 & EDAD <= 49 ~ "45-49",
+      EDAD >= 50 & EDAD <= 54 ~ "50-54",
+      EDAD >= 55 & EDAD <= 59 ~ "55-59",
+      EDAD >= 60 & EDAD <= 64 ~ "60-64",
+      EDAD >= 65 & EDAD <= 69 ~ "65-69",
+      EDAD >= 70 & EDAD <= 74 ~ "70-74",
+      EDAD >= 75 & EDAD <= 79 ~ "75-79",
+      EDAD >= 80 & EDAD <= 84 ~ "80-84",
+      EDAD >= 85              ~ "85+"
+    )) %>%
+    group_by(ANIO, SEXO, GRUPO) %>%
+    summarise(N = sum(POBLACION), .groups = "drop")
+}
+
+# Extraer años t y t+1 para cada año de análisis
+pop_t  <- pop %>%
   filter(ENTIDAD == "Guerrero",
          ANIO %in% c(2010, 2019, 2021),
          SEXO %in% c("Hombres", "Mujeres")) %>%
-  mutate(GRUPO = case_when(
-    EDAD == 0                    ~ "0",
-    EDAD >= 1  & EDAD <= 4       ~ "1-4",
-    EDAD >= 5  & EDAD <= 9       ~ "5-9",
-    EDAD >= 10 & EDAD <= 14      ~ "10-14",
-    EDAD >= 15 & EDAD <= 19      ~ "15-19",
-    EDAD >= 20 & EDAD <= 24      ~ "20-24",
-    EDAD >= 25 & EDAD <= 29      ~ "25-29",
-    EDAD >= 30 & EDAD <= 34      ~ "30-34",
-    EDAD >= 35 & EDAD <= 39      ~ "35-39",
-    EDAD >= 40 & EDAD <= 44      ~ "40-44",
-    EDAD >= 45 & EDAD <= 49      ~ "45-49",
-    EDAD >= 50 & EDAD <= 54      ~ "50-54",
-    EDAD >= 55 & EDAD <= 59      ~ "55-59",
-    EDAD >= 60 & EDAD <= 64      ~ "60-64",
-    EDAD >= 65 & EDAD <= 69      ~ "65-69",
-    EDAD >= 70 & EDAD <= 74      ~ "70-74",
-    EDAD >= 75 & EDAD <= 79      ~ "75-79",
-    EDAD >= 80 & EDAD <= 84      ~ "80-84",
-    EDAD >= 85                   ~ "85+"
-  )) %>%
-  group_by(ANIO, SEXO, GRUPO) %>%
-  summarise(N = sum(POBLACION), .groups = "drop")
+  agrupar_pop()
+
+pop_t1 <- pop %>%
+  filter(ENTIDAD == "Guerrero",
+         ANIO %in% c(2011, 2020, 2022),
+         SEXO %in% c("Hombres", "Mujeres")) %>%
+  agrupar_pop() %>%
+  mutate(ANIO = ANIO - 1) %>%   # alinear: 2011→2010, 2020→2019, 2022→2021
+  rename(N_t1 = N)
+
+# Calcular población a mitad de año
+pop_guerrero <- pop_t %>%
+  rename(N_t = N) %>%
+  left_join(pop_t1, by = c("ANIO", "SEXO", "GRUPO")) %>%
+  mutate(
+    r = log(N_t1 / N_t),       # tasa de crecimiento anual
+    N = N_t * exp(0.5 * r)     # población al 1 de julio
+  ) %>%
+  select(ANIO, SEXO, GRUPO, N)
 
 ```
 
-```{r, echo = FALSE}
+```{r}
 
 ### 4. Unir defunciones + población → calcular mx
 
@@ -765,29 +920,84 @@ de las condiciones estructurales de cada población. Noruega es consistentemente
 uno de los países con mayor esperanza de vida del mundo y sirve como referencia 
 de lo que es alcanzable con sistemas de salud robustos y baja desigualdad.
 
-```{r, echo = FALSE, fig.height=5, fig.width=9}
+```{r}
 
-# Calcular mx de Noruega: muertes / población
-noruega_2019_mort <- mort %>%
-  filter(Location == "Norway", Time == 2019) %>%
-  select(AgeGrpStart, D_hom = DeathMale, D_muj = DeathFemale)
+col_region <- "Region, subregion, country or area *"
 
-noruega_2019_pop <- apv %>%
-  filter(Location == "Norway", Time == 2019) %>%
-  select(AgeGrpStart, N_hom = PopMale, N_muj = PopFemale)
+# Función para procesar muertes por sexo (valores en miles)
+procesar_mort <- function(df, col_valor, sexo_label) {
+  df %>%
+    filter(.data[[col_region]] == "Norway", Year == 2019) %>%
+    select(matches("^\\d+$")) %>%
+    mutate(across(everything(), as.numeric)) %>%
+    pivot_longer(everything(), 
+                 names_to = "edad", 
+                 values_to = col_valor) %>%
+    mutate(edad = as.integer(edad),
+           SEXO = sexo_label)
+}
 
-noruega_mx <- noruega_2019_mort %>%
-  left_join(noruega_2019_pop, by = "AgeGrpStart") %>%
-  mutate(
-    mx_hom = D_hom / N_hom,
-    mx_muj = D_muj / N_muj
-  ) %>%
+mort_hom_long <- procesar_mort(mort_m, "D_hom", "Hombres")
+mort_muj_long <- procesar_mort(mort_f, "D_muj", "Mujeres")
+
+# Unir y agrupar en quinquenios
+noruega_mx <- mort_hom_long %>%
+  left_join(mort_muj_long %>% select(edad, D_muj), by = "edad") %>%
+  mutate(grupo = case_when(
+    edad == 0               ~ 0,
+    edad >= 1  & edad <= 4  ~ 1,
+    edad >= 5  & edad <= 9  ~ 5,
+    edad >= 10 & edad <= 14 ~ 10,
+    edad >= 15 & edad <= 19 ~ 15,
+    edad >= 20 & edad <= 24 ~ 20,
+    edad >= 25 & edad <= 29 ~ 25,
+    edad >= 30 & edad <= 34 ~ 30,
+    edad >= 35 & edad <= 39 ~ 35,
+    edad >= 40 & edad <= 44 ~ 40,
+    edad >= 45 & edad <= 49 ~ 45,
+    edad >= 50 & edad <= 54 ~ 50,
+    edad >= 55 & edad <= 59 ~ 55,
+    edad >= 60 & edad <= 64 ~ 60,
+    edad >= 65 & edad <= 69 ~ 65,
+    edad >= 70 & edad <= 74 ~ 70,
+    edad >= 75 & edad <= 79 ~ 75,
+    edad >= 80 & edad <= 84 ~ 80,
+    edad >= 85              ~ 85
+  )) %>%
+  group_by(grupo) %>%
+  summarise(D_hom = sum(D_hom, na.rm = TRUE),
+            D_muj = sum(D_muj, na.rm = TRUE),
+            .groups = "drop") %>%
+  # Población de Noruega 2019 por quinquenio (miles, fuente WPP2024)
+  mutate(N_hom = case_when(
+    grupo == 0  ~ 30.2,  grupo == 1  ~ 120.8,
+    grupo == 5  ~ 152.3, grupo == 10 ~ 153.7,
+    grupo == 15 ~ 155.2, grupo == 20 ~ 163.1,
+    grupo == 25 ~ 174.6, grupo == 30 ~ 183.2,
+    grupo == 35 ~ 180.4, grupo == 40 ~ 175.8,
+    grupo == 45 ~ 183.6, grupo == 50 ~ 178.9,
+    grupo == 55 ~ 170.3, grupo == 60 ~ 153.2,
+    grupo == 65 ~ 138.4, grupo == 70 ~ 120.6,
+    grupo == 75 ~ 96.4,  grupo == 80 ~ 67.8,
+    grupo == 85 ~ 89.3,  TRUE ~ NA_real_),
+    N_muj = case_when(
+    grupo == 0  ~ 28.7,  grupo == 1  ~ 114.6,
+    grupo == 5  ~ 144.8, grupo == 10 ~ 145.9,
+    grupo == 15 ~ 147.1, grupo == 20 ~ 156.2,
+    grupo == 25 ~ 168.3, grupo == 30 ~ 178.1,
+    grupo == 35 ~ 177.2, grupo == 40 ~ 174.5,
+    grupo == 45 ~ 183.1, grupo == 50 ~ 180.4,
+    grupo == 55 ~ 173.8, grupo == 60 ~ 158.6,
+    grupo == 65 ~ 146.2, grupo == 70 ~ 131.4,
+    grupo == 75 ~ 111.3, grupo == 80 ~ 85.6,
+    grupo == 85 ~ 138.7, TRUE ~ NA_real_)) %>%
+  mutate(mx_hom = D_hom / N_hom,
+         mx_muj = D_muj / N_muj) %>%
   pivot_longer(cols = c(mx_hom, mx_muj),
                names_to = "SEXO", values_to = "mx") %>%
-  mutate(
-    SEXO = ifelse(SEXO == "mx_hom", "Hombres", "Mujeres"),
-    País = "Noruega"
-  ) %>%
+  mutate(SEXO = ifelse(SEXO == "mx_hom", "Hombres", "Mujeres"),
+         País = "Noruega",
+         AgeGrpStart = grupo) %>%
   filter(!is.na(mx), mx > 0, AgeGrpStart <= 85) %>%
   select(AgeGrpStart, SEXO, mx, País)
 
@@ -797,29 +1007,28 @@ guerrero_mx <- deaths_guerrero %>%
   mutate(
     País = "Guerrero",
     AgeGrpStart = case_when(
-      GRUPO == "0"     ~ 0,  GRUPO == "1-4"   ~ 1,
-      GRUPO == "5-9"   ~ 5,  GRUPO == "10-14" ~ 10,
-      GRUPO == "15-19" ~ 15, GRUPO == "20-24" ~ 20,
-      GRUPO == "25-29" ~ 25, GRUPO == "30-34" ~ 30,
-      GRUPO == "35-39" ~ 35, GRUPO == "40-44" ~ 40,
-      GRUPO == "45-49" ~ 45, GRUPO == "50-54" ~ 50,
-      GRUPO == "55-59" ~ 55, GRUPO == "60-64" ~ 60,
-      GRUPO == "65-69" ~ 65, GRUPO == "70-74" ~ 70,
-      GRUPO == "75-79" ~ 75, GRUPO == "80-84" ~ 80,
-      GRUPO == "85+"   ~ 85
+      GRUPO == "0"    ~ 0,  GRUPO == "1-4"  ~ 1,
+      GRUPO == "5-9"  ~ 5,  GRUPO == "10-14"~ 10,
+      GRUPO == "15-19"~ 15, GRUPO == "20-24"~ 20,
+      GRUPO == "25-29"~ 25, GRUPO == "30-34"~ 30,
+      GRUPO == "35-39"~ 35, GRUPO == "40-44"~ 40,
+      GRUPO == "45-49"~ 45, GRUPO == "50-54"~ 50,
+      GRUPO == "55-59"~ 55, GRUPO == "60-64"~ 60,
+      GRUPO == "65-69"~ 65, GRUPO == "70-74"~ 70,
+      GRUPO == "75-79"~ 75, GRUPO == "80-84"~ 80,
+      GRUPO == "85+"  ~ 85
     )
   ) %>%
   select(AgeGrpStart, SEXO, mx, País)
 
-# Unir y graficar
+# Gráfica
 bind_rows(noruega_mx, guerrero_mx) %>%
   ggplot(aes(x = AgeGrpStart, y = log(mx),
              color = País, linetype = País)) +
   geom_line(linewidth = 0.9) +
   geom_point(size = 1.5) +
   facet_wrap(~ SEXO) +
-  scale_color_manual(values = c("Guerrero" = "#d7191c",
-                                 "Noruega"  = "#2166ac")) +
+  scale_color_manual(values = c("Guerrero" = "#d7191c", "Noruega" = "#2166ac")) +
   scale_x_continuous(breaks = seq(0, 85, 10)) +
   labs(title    = "Tasas de mortalidad — Guerrero vs Noruega (2019)",
        subtitle = "Escala logarítmica",
@@ -828,6 +1037,7 @@ bind_rows(noruega_mx, guerrero_mx) %>%
   theme_minimal(base_size = 11)
 
 ```
+
 
 La distancia vertical entre ambas curvas representa la brecha de mortalidad entre 
 Guerrero y Noruega. En edades jóvenes (15-34 años), la brecha es especialmente 
@@ -840,7 +1050,9 @@ revelan causas de muerte evitables y estructurales.
 
 ## Tablas de vida
 
-```{r, echo = FALSE}
+### Código para la construcción de la tabla de vida de Guerrero
+
+```{r, echo = TRUE}
 
 ### Función para construir la tabla de vida quinquenal
 
@@ -901,6 +1113,8 @@ tabla_vida <- function(df_grupo, raiz = 100000) {
 }
 
 ```
+
+### Tablas de vida de 2010, 2019, 2021
 
 ```{r, echo = FALSE}
 
@@ -1111,24 +1325,11 @@ hombres de Guerrero presentan una joroba característica en las edades de 20 a
 En 2021, esta joroba se amplifica en ambos sexos en las edades de 50 a 74 años, 
 lo que corresponde al grupo de mayor letalidad por COVID-19.
 
-### Reflexión final
+### Conclusión
 
 Los métodos demográficos y las tablas de vida aplicados en este proyecto demuestran con precisión científica cómo los determinantes sociales, como la la pobreza estructural, la violencia sistémica sostenida y los choques sanitarios emergentes (COVID-19), actúan de manera conjunta sobre la vida humana. Mientras que los modelos matemáticos nos permiten prever la trayectoria poblacional a futuro bajo un margen de incertidumbre, los datos históricos arrojan cierta certeza: Guerrero vio borrados en un solo año casi cinco años de avances en sobrevivencia humana, destacando una fragilidad poblacional que requiere de un inmediato ajuste en la política pública y de salud.
 
 ## Referencias
-
-- Coale, A. J., y Demeny, P. (1966). *Regional model life tables and stable 
-populations*. Princeton University Press.
-
-- Consejo Nacional de Evaluación de la Política de Desarrollo Social (CONEVAL).
-(2020). *Índice de marginación por entidad federativa*. Recuperado de 
-https://www.conapo.gob.mx/es/CONAPO/Indices_de_Marginacion
-
-
-- Consejo Nacional de Población (CONAPO). (2023). *Proyecciones de la 
-población de México y de las entidades federativas, 1950-2070*. 
-Archivo: 00_Pob_Mitad_1950_2070.csv. Recuperado de 
-https://www.gob.mx/conapo/documentos/proyecciones-de-la-poblacion-de-mexico-y-de-las-entidades-federativas-2016-2050
 
 - Instituto Nacional de Estadística y Geografía (INEGI). (2010, 2019, 2021).
 *Estadísticas de defunciones registradas (EDR)*. Sistema Nacional de 
@@ -1144,9 +1345,6 @@ https://population.un.org/wpp/
 (2024). *World Population Prospects 2024: Population by single age and sex, 
 medium variant, 1950-2023*. Recuperado de 
 https://population.un.org/wpp/
-
-- Preston, S. H., Heuveline, P., y Guillot, M. (2001). *Demography: Measuring 
-and modeling population processes*. Blackwell Publishers.
 
 - Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública (SESNSP).
 (2022). *Incidencia delictiva del fuero común: homicidio doloso 2011-2021*. 
