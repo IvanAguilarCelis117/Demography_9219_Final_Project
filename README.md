@@ -316,8 +316,7 @@ El PDF se genera en la misma carpeta como `Proyecto_Final_9219.pdf`.
 
 | Dato | Fuente | Incluido en repo |
 |------|--------|:----------------:|
-| Población mitad de año 1950–2070 | CONAPO | ✓ |
-| Defunciones Guerrero 1990–2024 | SINAIS/INEGI | ✓ |
+| Defunciones Guerrero 1990–2024 | INEGI | ✓ |
 | Muertes por edad y sexo (internacional) | UN WPP 2024 | ✓ |
 | Población por edad y sexo (internacional) | UN WPP 2024 | ✓ |
 | Tasas Argentina y Guatemala | Ejercicio de clase | ✓ |
@@ -337,7 +336,6 @@ El PDF se genera en la misma carpeta como `Proyecto_Final_9219.pdf`.
 ## Referencias
 
 - Coale, A. J., y Demeny, P. (1966). *Regional model life tables and stable populations*. Princeton University Press.
-- CONAPO (2020). *Índice de marginación por entidad federativa*. https://www.conapo.gob.mx
 - INEGI (2010, 2019, 2021). *Estadísticas de defunciones registradas*. SINAIS. https://www.inegi.org.mx
 - UN DESA (2024). *World Population Prospects 2024*. https://population.un.org/wpp/
 - SESNSP (2022). *Incidencia delictiva del fuero común: homicidio doloso 2011–2021*. https://www.gob.mx/sesnsp
