@@ -1,3 +1,6 @@
+### Nota importante:
+Se mencionan los pasos para poder correr el código por primera vez.
+
 # Tablas de Vida — Guerrero 2010, 2019 y 2021
 
 **Autores:** Iván Aguilar Celis y Ana Paola Rivera Gallardo  
