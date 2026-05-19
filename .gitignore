@@ -1,6 +1,5 @@
-.Rproj.user
-.Rhistory
+Data/WPP2024_population_m.xlsx
+Data/WPP2024_population_f.xlsx
+Script/.RDataTmp
 .RData
-.Ruserdata
-.DS_Store
-*.Rproj
+.RHistory
