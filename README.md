@@ -7,7 +7,7 @@
 ---
 
 <p align="center">
-  <img src="data/Foto de Guerrero.jpg" width="600" alt="Estado de Guerrero, México"/>
+  <img src="data/Foto de Guerrero.jpg" width="300" alt="Estado de Guerrero, México"/>
 </p>
 
 ---
