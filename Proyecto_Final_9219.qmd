@@ -151,7 +151,7 @@ editor: visual
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-## Introducción
+## a) Introducción
 
 El presente documento tiene como objetivo principal analizar la estructura poblacional y la dinámica demográfica del estado de Guerrero a lo largo de distintos periodos (2010, 2019 y 2021). A través del uso de proyecciones oficiales y registros vitales, con datos tomados del INEGI pricipalmente, se examinan herramientas demográficas como las pirámides poblacionales, los modelos de crecimiento exponencial y la construcción matemática de tablas de vida. 
 
@@ -176,14 +176,14 @@ Esta sobremortalidad violenta afecta principalmente a hombres jóvenes de 15 a 4
 
 Según CONAPO (2020), Guerrero ocupa el **primer lugar nacional en marginación**, con un índice de 0.40 que significa que el estado tiene un grado **muy alto** en esta. La marginación implica limitaciones severas en el acceso a servicios de salud, lo que se traduce en una limitante en el caso de respuesta ante enfermedades evitables y, en particular, ante la pandemia de COVID-19 que empezó en 2020, hubo poco acceso a estos servicios, pero además en este tipo de localidades lograron contener la enfermedad, debido a la poca interacción con la sociedad causada por su aislamiento. La combinación de alta violencia y alta marginación configura un perfil de mortalidad que distingue a Guerrero del resto del país y que será visible en  la comparación de las tablas de vida entre 2010, 2019 y 2021.
 
-## Diagrama de flujo 
+## b) Diagrama de flujo 
 
 El siguiente diagrama muestra el proceso completo para la construcción 
 de las tablas de vida de Guerrero para los años 2010, 2019 y 2021.
 
 ![Diagrama de flujo: construcción de tablas de vida](data/diagrama_flujo_tablas_vida.png){width=70%}
 
-## Formulas utilizadas
+## c) Formulas utilizadas
 
 ### Crecimiento exponencial
 
@@ -260,6 +260,8 @@ Finalmente, cuando el análisis exige un mayor nivel de detalle, se abandonan lo
 
 ```{r, echo= FALSE, message = FALSE, warning = FALSE, output = FALSE}
 
+# d) Código para todos los cálculos
+
 # 1. Remover los objetos
 rm(list = ls())
 graphics.off()
@@ -306,6 +308,9 @@ sum(pop$POBLACION)
 ### Pirámide poblacional de Guerrero 1970.
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
+
+# d) Código para todos los cálculos
+
 # Preparar los datos para la pirámide
 pop_edo <- pop[ENTIDAD == "Guerrero" & ANIO == 1970, .(SEXO, EDAD, POBLACION)]
 
@@ -330,6 +335,8 @@ Base muy ancha con reducción rápida hacia edades mayores. Estructura expansiva
 ### Pirámide poblacional de Guerrero 2010. 
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
+
+# d) Código para todos los cálculos
 
 # Preparar los datos para la pirámide
 pop_edo <- pop[ENTIDAD == "Guerrero" & ANIO == 2010, .(SEXO, EDAD, POBLACION)]
@@ -356,6 +363,8 @@ La base se estrecha respecto a 1970, indicando inicio de transición demográfic
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
 
+# d) Código para todos los cálculos
+
 # Preparar los datos para la pirámide
 pop_edo <- pop[ENTIDAD == "Guerrero" & ANIO == 2019, .(SEXO, EDAD, POBLACION)]
 
@@ -380,6 +389,8 @@ Base aún más estrecha que 2010, consolidando la transición demográfica. El e
 ### Pirámide poblacional de Guerrero 2021. 
 
 ```{r, echo = FALSE, fig.height = 5, fig.width = 8}
+
+# d) Código para todos los cálculos
 
 # Preparar los datos para la pirámide
 pop_edo <- pop[ENTIDAD == "Guerrero" & ANIO == 2021, .(SEXO, EDAD, POBLACION)]
@@ -406,6 +417,8 @@ Muy similar a 2019, sin cambios estructurales visibles a simple vista en la pir�
 
 ```{r, echo = FALSE}
 
+# d) Código para todos los cálculos
+
 # Lugar de donde se obtienen los datos
 deaths <- fread("data/Mx_ARG_GUA.csv")
 
@@ -422,6 +435,8 @@ kable(deaths,
 ## Lectura de tabla de muertes del estado de Guerrero
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
 
 library(readxl)
 
@@ -471,6 +486,8 @@ kable(def_tabla,
 
 ```{r, echo = FALSE, results = 'hide'}
 
+# d) Código para todos los cálculos
+
 ### Media Ponderada
 
 weight_mean <- function(x, w = rep(1/length(x), length(x))){
@@ -488,6 +505,8 @@ weight_mean(c(10, 40), )              #sin pesos
 ## Crecimiento exponencial en México
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
 
 ### Crecimiento exponencial
 
@@ -518,6 +537,9 @@ data.frame(Año = c(decimal_date(as.Date("2010-06-25")),
 ## Crecimiento exponencial en Guerrero
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
+
 crecimiento_exp <- function(K_0, K_T, t_0, t_T, t){
   dt <- decimal_date(as.Date(t_T)) - decimal_date(as.Date(t_0))
   r <- log(K_T/ K_0)/dt
@@ -539,12 +561,15 @@ data.frame(Año = c(decimal_date(as.Date("2010-06-12")),
                    decimal_date(as.Date("2020-03-15")), 
                    seq(2020.5, 2100.5, 1)), 
            K_T = c(3388768, 3540685, cre_exp)) %>% ggplot(aes(Año, K_T)) +         geom_line() + geom_point()
+
 ```
  Proyección de población hacia 2100 bajo tasa constante. México crece más rápido en términos absolutos, Guerrero mucho más lento — lo cual refleja su condición de estado expulsor de migración.
 
 ## Tasas brutas y específicas de Argentina (Ejercicio).
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
 
 # Lugar de donde se obtienen los datos
 deaths <- fread("data/Mx_ARG_GUA.csv")
@@ -569,6 +594,8 @@ ggplot(argentina_data, aes(x = x, y = log(m_x), group = 1)) +
 ## Tasas brutas y específicas (Guerrero [2010, 2019, 2021]).
 
 ```{r, echo = FALSE, results = 'hide'}
+
+# d) Código para todos los cálculos
 
 ### Limpiamos el Excel de defunciones
 
@@ -610,6 +637,8 @@ nrow(pop_guerrero)  # debe dar 114
 ```
 
 ```{r, echo = FALSE, results = 'hide'}
+
+# d) Código para todos los cálculos
 
 # 0. Leer el Excel
 def_raw <- read_excel("data/INEGI(Defunciones Guerrero).xlsx", skip = 4)
@@ -664,6 +693,8 @@ table(def_guerrero$GRUPO)  # todos con 6
 
 ```{r, echo = FALSE, results = 'hide'}
 
+# d) Código para todos los cálculos
+
 ### Ver resultado
 
 head(def_guerrero, 20)
@@ -673,6 +704,8 @@ table(def_guerrero$ANIO)
 ```
 
 ```{r, echo = FALSE, results = 'hide'}
+
+# d) Código para todos los cálculos
 
 ### 2. Estandarizar nombres de grupos para unir con población CONAPO
 ### CONAPO usa: "0","1-4","5-9","10-14",...,"85+"
@@ -706,6 +739,8 @@ def_guerrero <- def_guerrero %>%
 
 ```{r, echo = FALSE, results = 'hide'}
 
+# d) Código para todos los cálculos
+
 ### Verificar que los nombres quedaron bien
 
 table(def_guerrero$GRUPO)
@@ -713,6 +748,8 @@ table(def_guerrero$GRUPO)
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
 
 ### 3. Obtener población expuesta (N) a mitad de año
 # Fórmula: N(t + 0.5) = N(t) * exp(0.5 * r),  r = log(N(t+1) / N(t))
@@ -778,6 +815,8 @@ pop_guerrero <- pop_t %>%
 
 ```{r}
 
+# d) Código para todos los cálculos
+
 ### 4. Unir defunciones + población → calcular mx
 
 deaths_guerrero <- def_guerrero %>%
@@ -792,6 +831,8 @@ deaths_guerrero <- def_guerrero %>%
 
 ```{r, echo = FALSE, results = 'hide'}
 
+# d) Código para todos los cálculos
+
 ### Verificar: no debe haber NA en mx
 
 deaths_guerrero %>% filter(is.na(mx))
@@ -799,6 +840,8 @@ deaths_guerrero %>% filter(is.na(mx))
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
 
 ### 5. Tasas BRUTAS por año y sexo
 
@@ -827,6 +870,8 @@ Mostramos una por una, las gráficas logarítmicas de las tasas específicas de 
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
+# d) Código para todos los cálculos
+
 ### Gráfica logarítmica de tasas específicas de mortalidad de Guerrero en 2010
 
 deaths_guerrero %>%
@@ -845,6 +890,8 @@ deaths_guerrero %>%
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
+# d) Código para todos los cálculos
+
 ### Gráfica logarítmica de tasas específicas de mortalidad de Guerrero en 2019
 
 deaths_guerrero %>%
@@ -862,6 +909,8 @@ deaths_guerrero %>%
 ```
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
 
 ### Gráfica logarítmica de tasas específicas de mortalidad de Guerrero en 2021
 
@@ -884,6 +933,8 @@ Las tres muestran la misma forma de J pero con una joroba notable en hombres de 
 Finalmente mostramos una comparación entre los 3 años.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
 
 ### Gráfica comparativa y logarítmica de tasas específicas de mortalidad de Guerrero
 
@@ -921,6 +972,8 @@ uno de los países con mayor esperanza de vida del mundo y sirve como referencia
 de lo que es alcanzable con sistemas de salud robustos y baja desigualdad.
 
 ```{r}
+
+# d) Código para todos los cálculos
 
 col_region <- "Region, subregion, country or area *"
 
@@ -1038,7 +1091,6 @@ bind_rows(noruega_mx, guerrero_mx) %>%
 
 ```
 
-
 La distancia vertical entre ambas curvas representa la brecha de mortalidad entre 
 Guerrero y Noruega. En edades jóvenes (15-34 años), la brecha es especialmente 
 pronunciada en hombres, reflejo de la sobremortalidad por violencia en Guerrero 
@@ -1053,6 +1105,8 @@ revelan causas de muerte evitables y estructurales.
 ### Código para la construcción de la tabla de vida de Guerrero
 
 ```{r, echo = TRUE}
+
+# d) Código para todos los cálculos
 
 ### Función para construir la tabla de vida quinquenal
 
@@ -1118,6 +1172,8 @@ tabla_vida <- function(df_grupo, raiz = 100000) {
 
 ```{r, echo = FALSE}
 
+# d) Código para todos los cálculos
+
 ### Calcular tablas para cada año y sexo
 
 tablas <- deaths_guerrero %>%
@@ -1129,6 +1185,9 @@ tablas <- deaths_guerrero %>%
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos 
+
 tablas %>%
   filter(ANIO == 2010, SEXO == "Hombres") %>%
   mutate(mx=round(mx,4), ax=round(ax,4), qx=round(qx,4), px=round(px,4),
@@ -1139,9 +1198,13 @@ tablas %>%
                       "lx","ndx","Lx","Tx","ex^0"),
         escape = FALSE, format.args = list(big.mark = ",")) %>%
   kable_styling(latex_options = c("striped","hold_position","scale_down"), font_size = 8)
+
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
+
 tablas %>%
   filter(ANIO == 2010, SEXO == "Mujeres") %>%
   mutate(mx=round(mx,4), ax=round(ax,4), qx=round(qx,4), px=round(px,4),
@@ -1152,9 +1215,13 @@ tablas %>%
                       "lx","ndx","Lx","Tx","ex^0"),
         escape = FALSE, format.args = list(big.mark = ",")) %>%
   kable_styling(latex_options = c("striped","hold_position","scale_down"), font_size = 8)
+
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
+
 tablas %>%
   filter(ANIO == 2019, SEXO == "Hombres") %>%
   mutate(mx=round(mx,4), ax=round(ax,4), qx=round(qx,4), px=round(px,4),
@@ -1165,9 +1232,13 @@ tablas %>%
                       "lx","ndx","Lx","Tx","ex^0"),
         escape = FALSE, format.args = list(big.mark = ",")) %>%
   kable_styling(latex_options = c("striped","hold_position","scale_down"), font_size = 8)
+
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
+
 tablas %>%
   filter(ANIO == 2019, SEXO == "Mujeres") %>%
   mutate(mx=round(mx,4), ax=round(ax,4), qx=round(qx,4), px=round(px,4),
@@ -1178,9 +1249,13 @@ tablas %>%
                       "lx","ndx","Lx","Tx","ex^0"),
         escape = FALSE, format.args = list(big.mark = ",")) %>%
   kable_styling(latex_options = c("striped","hold_position","scale_down"), font_size = 8)
+
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
+
 tablas %>%
   filter(ANIO == 2021, SEXO == "Hombres") %>%
   mutate(mx=round(mx,4), ax=round(ax,4), qx=round(qx,4), px=round(px,4),
@@ -1191,9 +1266,13 @@ tablas %>%
                       "lx","ndx","Lx","Tx","ex^0"),
         escape = FALSE, format.args = list(big.mark = ",")) %>%
   kable_styling(latex_options = c("striped","hold_position","scale_down"), font_size = 8)
+
 ```
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
+
 tablas %>%
   filter(ANIO == 2021, SEXO == "Mujeres") %>%
   mutate(mx=round(mx,4), ax=round(ax,4), qx=round(qx,4), px=round(px,4),
@@ -1204,11 +1283,14 @@ tablas %>%
                       "lx","ndx","Lx","Tx","ex^0"),
         escape = FALSE, format.args = list(big.mark = ",")) %>%
   kable_styling(latex_options = c("striped","hold_position","scale_down"), font_size = 8)
+
 ```
 
-### Cuadro de esperanzas de vida al nacer
+### e) Cuadro de esperanzas de vida al nacer
 
 ```{r, echo = FALSE}
+
+# d) Código para todos los cálculos
 
 e0_resumen <- tablas %>%
   filter(GRUPO == "0") %>%
@@ -1228,11 +1310,13 @@ kable(e0_resumen,
 
 Muestra los valores calculados: hombres 73.32 → 74.30 → 68.66 y mujeres 80.25 → 81.40 → 76.53. El descenso de 2021 es el hallazgo central del análisis.
 
-### Gráficas adicionales
+### f) Gráficas adicionales
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
-# Curva de supervivencia lx
+# d) Código para todos los cálculos
+
+# lx - Supervivencia
 ggplot(tablas,
        aes(x = GRUPO, y = lx / 1000,
            color = factor(ANIO), group = factor(ANIO))) +
@@ -1241,7 +1325,7 @@ ggplot(tablas,
   scale_color_manual(
     values = c("2010" = "#2166ac", "2019" = "#4dac26", "2021" = "#d7191c"),
     name = "Año") +
-  labs(title    = "Curva de supervivencia (lₓ) — Guerrero",
+  labs(title    = "Curva de supervivencia (lx) — Guerrero",
        subtitle = "Raíz = 100 mil",
        x = "Grupo de edad", y = "Sobrevivientes (miles)") +
   theme_minimal(base_size = 11) +
@@ -1253,7 +1337,33 @@ En 2021 la curva cae más rápido que en 2010 y 2019, especialmente en hombres. 
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
-# Probabilidad de muerte qx
+# d) Código para todos los cálculos
+
+# dx — distribución de muertes por edad
+ggplot(tablas,
+       aes(x = GRUPO, y = dx,
+           color = factor(ANIO), group = factor(ANIO))) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ SEXO) +
+  scale_color_manual(
+    values = c("2010" = "#2166ac", "2019" = "#4dac26", "2021" = "#d7191c"),
+    name = "Año") +
+  labs(title    = "Distribución de muertes (dx) — Guerrero",
+       subtitle = "Muertes por grupo de edad de una cohorte sintética de 100,000",
+       x = "Grupo de edad", y = "dₓ") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Muestra cómo se extingue la cohorte por edad. Destaca el abultamiento atípico y el desplazamiento de las defunciones hacia edades adultas o medias en 2021, evidenciando la sobremortalidad del periodo.
+
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
+
+# qx - probabilidad de muerte
 ggplot(tablas,
        aes(x = GRUPO, y = qx,
            color = factor(ANIO), group = factor(ANIO))) +
@@ -1262,7 +1372,7 @@ ggplot(tablas,
   scale_color_manual(
     values = c("2010" = "#2166ac", "2019" = "#4dac26", "2021" = "#d7191c"),
     name = "Año") +
-  labs(title = "Probabilidad de muerte (qₓ) — Guerrero",
+  labs(title = "Probabilidad de muerte (qx) — Guerrero",
        x = "Grupo de edad", y = "qₓ") +
   theme_minimal(base_size = 11) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
@@ -1271,7 +1381,104 @@ ggplot(tablas,
 
 Las probabilidades de muerte en 2021 son mayores en todos los grupos de edad adulta respecto a años anteriores. El salto es más pronunciado en hombres de 60-75 años.
 
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
+
+# px — probabilidad de sobrevivir
+ggplot(tablas,
+       aes(x = GRUPO, y = px,
+           color = factor(ANIO), group = factor(ANIO))) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ SEXO) +
+  scale_color_manual(
+    values = c("2010" = "#2166ac", "2019" = "#4dac26", "2021" = "#d7191c"),
+    name = "Año") +
+  labs(title    = "Probabilidad de sobrevivir (px) — Guerrero",
+       x = "Grupo de edad", y = "pₓ") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Indica la probabilidad de llegar vivo al siguiente tramo de edad. Ilustra cómo el declive drástico de supervivencia, natural en la vejez, se adelantó de forma pronunciada durante 2021 frente a 2010 y 2019.
+
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
+
+# Lx — años-persona vividos en el intervalo
+ggplot(tablas,
+       aes(x = GRUPO, y = Lx / 1000,
+           color = factor(ANIO), group = factor(ANIO))) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ SEXO) +
+  scale_color_manual(
+    values = c("2010" = "#2166ac", "2019" = "#4dac26", "2021" = "#d7191c"),
+    name = "Año") +
+  labs(title    = "Años-persona vividos en el intervalo (Lx) — Guerrero",
+       subtitle = "En miles",
+       x = "Grupo de edad", y = "Lₓ (miles)") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Representa la estructura de la población estacionaria. La contracción visible de la curva en 2021 refleja directamente la pérdida de volumen poblacional y de tiempo vivido en cada intervalo específico.
+
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
+
+# Tx — años-persona acumulados desde x en adelante
+ggplot(tablas,
+       aes(x = GRUPO, y = Tx / 1000,
+           color = factor(ANIO), group = factor(ANIO))) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ SEXO) +
+  scale_color_manual(
+    values = c("2010" = "#2166ac", "2019" = "#4dac26", "2021" = "#d7191c"),
+    name = "Año") +
+  labs(title    = "Años-persona acumulados (Tx) — Guerrero",
+       subtitle = "En miles",
+       x = "Grupo de edad", y = "Tₓ (miles)") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Muestra el total de tiempo de vida restante para la cohorte a partir de la edad $x$. La caída vertical de la curva en 2021 cuantifica la pérdida masiva y repentina de años de vida potenciales en el estado.
+
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# d) Código para todos los cálculos
+
+# ex completa — esperanza de vida a cada edad
+ggplot(tablas,
+       aes(x = GRUPO, y = ex,
+           color = factor(ANIO), group = factor(ANIO))) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ SEXO) +
+  scale_color_manual(
+    values = c("2010" = "#2166ac", "2019" = "#4dac26", "2021" = "#d7191c"),
+    name = "Año") +
+  labs(title    = "Esperanza de vida por edad (ex) — Guerrero",
+       subtitle = "Años de vida restantes a cada edad",
+       x = "Grupo de edad", y = "eₓ (años)") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Resume el promedio de años restantes a cada edad. Evidencia el progreso en salud de 2010 a 2019, el retroceso generalizado en 2021 para todas las edades, y la ventaja biológica constante que mantienen las mujeres sobre los hombres.
+
 ```{r, echo = FALSE, fig.height=5, fig.width=7}
+
+# d) Código para todos los cálculos
 
 # Esperanza de vida al nacer — evolución
 e0_resumen %>%
@@ -1282,18 +1489,18 @@ e0_resumen %>%
   geom_point(size = 3) +
   geom_label(aes(label = round(e0, 1)), vjust = -0.6, size = 3.5,
              show.legend = FALSE) +
-  scale_color_manual(values = c("e₀ Hombres" = "steelblue",
-                                 "e₀ Mujeres"  = "indianred")) +
+  scale_color_manual(values = c("e0 Hombres" = "steelblue",
+                                 "e0 Mujeres"  = "indianred")) +
   scale_x_continuous(breaks = c(2010, 2019, 2021)) +
   labs(title = "Esperanza de vida al nacer — Guerrero",
-       x = "Año", y = "e₀ (años)", color = "") +
+       x = "Año", y = "e0 (años)", color = "") +
   theme_minimal(base_size = 12)
 
 ```
 
 La caída de 2021 es visualmente dramática, especialmente en hombres que bajan casi 6 años respecto a 2019. La brecha entre sexos se amplía en 2021.
 
-## Análisis de resultados y conclusión
+## g) Análisis de resultados y conclusión
 
 ### Tendencia pre-pandemia (2010–2019)
 
