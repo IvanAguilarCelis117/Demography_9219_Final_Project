@@ -1500,6 +1500,143 @@ e0_resumen %>%
 
 La caída de 2021 es visualmente dramática, especialmente en hombres que bajan casi 6 años respecto a 2019. La brecha entre sexos se amplía en 2021.
 
+
+## Fecundidad — Guerrero (2010, 2019, 2021)
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+# Nacimientos por edad de la madre — INEGI/SINAIS
+# Grupos fértiles: 15-19, 20-24, 25-29, 30-34, 35-39, 40-44, 45-49
+nacimientos_edad <- data.frame(
+  grupo     = c("15-19","20-24","25-29","30-34","35-39","40-44","45-49"),
+  mc        = c(17, 22, 27, 32, 37, 42, 47),   # punto medio del intervalo
+  B_2010    = c(19879, 30061, 25024, 16984, 9094, 2866, 510),
+  B_2019    = c(13281, 20223, 17466, 11001, 5542, 1587, 318),
+  B_2021    = c(10050, 16098, 14834,  9908, 5157, 1377, 253)
+)
+
+# Población femenina a mitad de año por grupo de edad — CONAPO
+# Grupos 15-49 años
+pob_fem <- pop_guerrero %>%
+  filter(SEXO == "Mujeres",
+         GRUPO %in% c("15-19","20-24","25-29",
+                      "30-34","35-39","40-44","45-49")) %>%
+  select(ANIO, GRUPO, N) %>%
+  pivot_wider(names_from = ANIO, values_from = N) %>%
+  rename(N_2010 = `2010`, N_2019 = `2019`, N_2021 = `2021`)
+
+# Unir nacimientos + población → calcular TEF
+fec_guerrero <- nacimientos_edad %>%
+  left_join(pob_fem, by = c("grupo" = "GRUPO")) %>%
+  mutate(
+    # Tasa Específica de Fecundidad (por 1,000 mujeres)
+    TEF_2010 = B_2010 / N_2010 * 1000,
+    TEF_2019 = B_2019 / N_2019 * 1000,
+    TEF_2021 = B_2021 / N_2021 * 1000
+  )
+
+# TGF = suma de TEF * 5 / 1000
+tgf <- data.frame(
+  Año  = c(2010, 2019, 2021),
+  TGF  = c(
+    sum(fec_guerrero$TEF_2010) * 5 / 1000,
+    sum(fec_guerrero$TEF_2019) * 5 / 1000,
+    sum(fec_guerrero$TEF_2021) * 5 / 1000
+  )
+)
+
+# Edad media de la fecundidad
+emf <- data.frame(
+  Año = c(2010, 2019, 2021),
+  EMF = c(
+    sum(fec_guerrero$mc * fec_guerrero$TEF_2010) / sum(fec_guerrero$TEF_2010),
+    sum(fec_guerrero$mc * fec_guerrero$TEF_2019) / sum(fec_guerrero$TEF_2019),
+    sum(fec_guerrero$mc * fec_guerrero$TEF_2021) / sum(fec_guerrero$TEF_2021)
+  )
+)
+
+```
+
+```{r, echo = FALSE}
+
+# Tabla de TEF por grupo y año
+fec_guerrero %>%
+  select(grupo, TEF_2010, TEF_2019, TEF_2021) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2))) %>%
+  kable(caption = "Tasas Específicas de Fecundidad — Guerrero (por 1,000 mujeres)",
+        booktabs = TRUE,
+        col.names = c("Grupo de edad", "TEF 2010", "TEF 2019", "TEF 2021")) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+```{r, echo = FALSE}
+
+# Tabla resumen TGF y EMF
+left_join(tgf, emf, by = "Año") %>%
+  mutate(TGF = round(TGF, 2), EMF = round(EMF, 2)) %>%
+  kable(caption = "Tasa Global de Fecundidad y Edad Media de la Fecundidad — Guerrero",
+        booktabs = TRUE,
+        col.names = c("Año", "TGF (hijos por mujer)", "EMF (años)")) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# Gráfica de TEF por grupo de edad y año
+fec_guerrero %>%
+  select(grupo, TEF_2010, TEF_2019, TEF_2021) %>%
+  pivot_longer(cols = starts_with("TEF"),
+               names_to = "Año", values_to = "TEF") %>%
+  mutate(Año = case_when(
+    Año == "TEF_2010" ~ "2010",
+    Año == "TEF_2019" ~ "2019",
+    Año == "TEF_2021" ~ "2021"
+  )) %>%
+  ggplot(aes(x = grupo, y = TEF,
+             color = Año, group = Año)) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 2) +
+  scale_color_manual(
+    values = c("2010" = "#2166ac",
+               "2019" = "#4dac26",
+               "2021" = "#d7191c")
+  ) +
+  labs(title    = "Tasas Específicas de Fecundidad — Guerrero",
+       subtitle = "Por grupo de edad de la madre: 2010, 2019 y 2021",
+       x = "Grupo de edad de la madre",
+       y = "TEF (por 1,000 mujeres)",
+       color = "Año") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Las curvas muestran un patrón clásico de cúspide temprana, con la mayor intensidad reproductiva concentrada en el grupo de 20 a 24 años para los tres periodos. Lo más destacable de la gráfica es el claro desplazamiento vertical de la curva completa hacia abajo. Se observa una contracción marcada en todos los tramos de edad entre 2010 y 2021, pero el estrechamiento es visualmente más drástico en los grupos más jóvenes (15 a 29 años), evidenciando un descenso acelerado en la fecundidad adolescente y juvenil.
+
+```{r, echo = FALSE, fig.height=4, fig.width=6}
+
+# Evolución de la TGF
+tgf %>%
+  ggplot(aes(x = Año, y = TGF)) +
+  geom_line(linewidth = 1.1, color = "#8B1A1A") +
+  geom_point(size = 3, color = "#8B1A1A") +
+  geom_label(aes(label = round(TGF, 2)), vjust = -0.6, size = 3.5) +
+  geom_hline(yintercept = 2.1, linetype = "dashed",
+             color = "gray50", linewidth = 0.7) +
+  annotate("text", x = 2010.2, y = 2.2,
+           label = "Nivel de reemplazo (2.1)",
+           size = 3, color = "gray50", hjust = 0) +
+  scale_x_continuous(breaks = c(2010, 2019, 2021)) +
+  labs(title = "Tasa Global de Fecundidad — Guerrero",
+       x = "Año", y = "Hijos por mujer") +
+  theme_minimal(base_size = 12)
+
+```
+
+La gráfica ilustra una tendencia fuertemente descendente en el número promedio de hijos por mujer a lo largo de la década. La inclusión de la línea punteada de referencia es clave, ya que evidencia cómo la fecundidad del estado se está acercando a gran velocidad al umbral de reemplazo generacional (2.1). Esta pendiente pronunciada es el reflejo visual de una transición demográfica avanzada, alejándose rápidamente de los niveles de alta natalidad históricos.
+
 ## g) Análisis de resultados y conclusión
 
 ### Tendencia pre-pandemia (2010–2019)
