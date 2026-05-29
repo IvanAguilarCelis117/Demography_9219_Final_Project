@@ -22,7 +22,7 @@ Guerrero para los años 2010, 2019 y 2021, abarcando mortalidad,
 fecundidad y estimación indirecta de mortalidad infantil.
  
 Guerrero es un caso singular en México: ocupa el **primer lugar nacional
-en marginación** (CONAPO 2020) y ha sido consistentemente una de las
+en marginación** y ha sido consistentemente una de las
 entidades más violentas del país. Estos factores estructurales, combinados
 con el impacto del COVID-19 en 2021, configuran un perfil demográfico
 que este proyecto documenta con herramientas formales.
@@ -155,6 +155,8 @@ Demography_9219_Final_Project/
     ├── WPP2024_population_m.xlsx        # Población ONU — hombres
     ├── WPP2024_population_f.xlsx        # Población ONU — mujeres
     ├── WPP2024_ASFR_by_Age5.xlsx        # TEF por grupo quinquenal ONU
+    ├── Mortalidad_Nacional.xlsx         # Mortalidad Nacional INEGI
+    ├── Fecundidad_Nacional.xlsx        # Fecundidad Nacional INEGI
     ├── Mx_ARG_GUA.csv                   # Tasas Argentina y Guatemala
     ├── diagrama_flujo_tablas_vida.png   # Diagrama de flujo
     ├── Foto_de_Guerrero.jpg             # Mapa para portada
