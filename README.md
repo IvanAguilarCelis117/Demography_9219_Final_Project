@@ -1,181 +1,147 @@
 ### Nota importante:
 Se mencionan los pasos para poder correr el código por primera vez.
 
-# Tablas de Vida — Guerrero 2010, 2019 y 2021
-
+# Análisis Demográfico del Estado de Guerrero
+ 
 **Autores:** Iván Aguilar Celis y Ana Paola Rivera Gallardo  
 **Materia:** Demografía 9219  
 **Institución:** Facultad de Ciencias, UNAM  
-
+ 
 ---
-
+ 
 <p align="center">
-  <img src="data/Foto de Guerrero.jpg" width="300" alt="Estado de Guerrero, México"/>
+  <img src="data/Foto_de_Guerrero.jpg" width="600" alt="Estado de Guerrero, México"/>
 </p>
 
 ---
 
 ## Descripción
-
-Este proyecto construye tablas de vida por sexo para el estado de Guerrero
-en los años 2010, 2019 y 2021, con el objetivo de analizar la evolución
-de la mortalidad y el impacto de la pandemia de COVID-19.
-
+ 
+Este proyecto realiza un análisis demográfico integral del estado de
+Guerrero para los años 2010, 2019 y 2021, abarcando mortalidad,
+fecundidad y estimación indirecta de mortalidad infantil.
+ 
 Guerrero es un caso singular en México: ocupa el **primer lugar nacional
 en marginación** (CONAPO 2020) y ha sido consistentemente una de las
-entidades más violentas del país, con una tasa de homicidios que en 2010
-triplicaba el promedio nacional. Estos factores estructurales, combinados
-con el impacto del COVID-19 en 2021, configuran un perfil de mortalidad
-que este proyecto documenta con herramientas demográficas formales.
-
-El análisis incluye pirámides poblacionales (1970, 2010, 2019, 2021),
-modelos de crecimiento exponencial, tasas específicas de mortalidad con
-comparativa internacional contra Noruega, tablas de vida completas con
-convenciones Coale-Demeny, y análisis del impacto del COVID-19.
+entidades más violentas del país. Estos factores estructurales, combinados
+con el impacto del COVID-19 en 2021, configuran un perfil demográfico
+que este proyecto documenta con herramientas formales.
+ 
+---
+ 
+## Diagrama de flujo metodológico
+ 
+<p align="center">
+  <img src="data/diagrama_flujo_tablas_vida.png" width="500"
+       alt="Diagrama de flujo: construcción de tablas de vida"/>
+</p>
 
 ---
-
+ 
 ## Estructura del proyecto
-
-El documento `Proyecto_Final_9219.qmd` está organizado en las siguientes
-secciones. Se indica el tipo de cada elemento (texto, tabla, gráfica o imagen).
-
+ 
 ```
 Proyecto_Final_9219.qmd
 │
-├── PORTADA  [LaTeX]
-│   ├── data/UNAM-Logo.png              logo institucional
-│   ├── data/FC-Logo.png                logo Facultad de Ciencias
-│   └── data/Foto de Guerrero.jpg       mapa del estado en portada
+├── PORTADA                          LaTeX — logos, mapa, título, autores
+├── ÍNDICE                           Generado automáticamente por Quarto
 │
-├── ÍNDICE  [Quarto — automático]
+├── ## a) Introducción               Contexto y objetivos del análisis
+├── ## Contexto de Guerrero          Violencia y marginación como determinantes
+│   ├── Indicador 1 — Homicidios
+│   └── Indicador 2 — Marginación
 │
-├── ## Introducción  [texto]
-│
-├── ## Contexto de Guerrero: violencia y mortalidad  [texto]
-│   ├── ### Indicador 1 — Tasa de homicidios
-│   └── ### Indicador 2 — Índice de marginación
-│
-├── ## Diagrama de flujo  [imagen]
+├── ## b) Diagrama de flujo          Proceso metodológico (imagen)
 │   └── data/diagrama_flujo_tablas_vida.png
 │
-├── ## Fórmulas utilizadas  [texto + ecuaciones LaTeX]
+├── ## c) Fórmulas utilizadas        Definición matemática de cada indicador
 │   ├── Crecimiento exponencial
-│   ├── Tasa central de mortalidad  mx = D/N
-│   ├── Probabilidad de muerte      qx = (n·mx)/(1+(n-ax)·mx)
-│   ├── Probabilidad de sobrevivir  px = 1 - qx
-│   ├── Sobrevivientes              lx
-│   ├── Muertes en intervalo        dx = lx · qx
-│   ├── Años-persona                Lx, Tx
-│   └── Esperanza de vida           ex = Tx / lx
+│   ├── Tasa central de mortalidad mx
+│   ├── Probabilidad de muerte qx
+│   └── Esperanza de vida ex
 │
-├── ## Lecturas — Kenneth W. Wachter  [texto]
+├── ## Lecturas — Kenneth W. Wachter Resumen conceptual de demografía formal
 │
-├── [Chunk de carga de datos]  [R — oculto]
-│   ├── data/00_Pob_Mitad_1950_2070.csv      CONAPO
-│   ├── data/WPP2024_deaths_m.xlsx           ONU muertes hombres
-│   ├── data/WPP2024_deaths_f.xlsx           ONU muertes mujeres
-│   ├── data/WPP2024_population_m.xlsx       ONU población hombres
-│   └── data/WPP2024_population_f.xlsx       ONU población mujeres
+├── [Chunk de carga de datos]        CONAPO + WPP2024
+│   ├── data/00_Pob_Mitad_1950_2070.csv
+│   ├── data/WPP2024_deaths_m.xlsx
+│   ├── data/WPP2024_deaths_f.xlsx
+│   ├── data/WPP2024_population_m.xlsx
+│   └── data/WPP2024_population_f.xlsx
 │
-├── ### Pirámide poblacional de Guerrero 1970  [gráfica ggplot2]
-│   └── barras horizontales por edad y sexo — estructura expansiva
+├── ### Pirámides poblacionales      Guerrero 1970, 2010, 2019, 2021
+│   └── [gráfica ggplot2 — barras horizontales por edad y sexo]
 │
-├── ### Pirámide poblacional de Guerrero 2010  [gráfica ggplot2]
-│   └── barras horizontales por edad y sexo — inicio transición demográfica
+├── ## Lectura de muertes ARG/GUA    Ejercicio con datos internacionales
+│   └── [tabla kable] — data/Mx_ARG_GUA.csv
 │
-├── ### Pirámide poblacional de Guerrero 2019  [gráfica ggplot2]
-│   └── barras horizontales por edad y sexo — transición avanzada
+├── ## Lectura de muertes Guerrero   Defunciones INEGI 2010/2019/2021
+│   └── [tabla kable] — data/INEGI(Defunciones Guerrero).xlsx
 │
-├── ### Pirámide poblacional de Guerrero 2021  [gráfica ggplot2]
-│   └── barras horizontales por edad y sexo — similar a 2019
+├── ## Escritura de funciones        Función weight_mean() auxiliar
 │
-├── ## Lectura de tabla de muertes de Argentina y Guatemala  [tabla kable]
-│   └── data/Mx_ARG_GUA.csv
+├── ## Crecimiento exponencial MX    [gráfica ggplot2] — proyección 2020–2100
+├── ## Crecimiento exponencial GRO   [gráfica ggplot2] — proyección 2020–2100
 │
-├── ## Lectura de tabla de muertes del estado de Guerrero  [tabla kable]
-│   └── data/INEGI(Defunciones Guerrero).xlsx — años 2010, 2019, 2021
+├── ## Tasas brutas y específicas
+│   ├── Argentina (ejercicio)        [gráfica ggplot2] — log(mx) año 2018
+│   ├── [Limpieza defunciones INEGI] Los nombres INEGI→CONAPO se estandarizan
+│   ├── [Población mitad de año]     N(t+0.5) = N(t)·exp(0.5·r)
+│   ├── [Cálculo de mx]              join defunciones + población
+│   ├── Tasas brutas Guerrero        [tabla kable] — por año y sexo
+│   ├── log(mx) Guerrero 2010        [gráfica ggplot2] — facet H/M, azul
+│   ├── log(mx) Guerrero 2019        [gráfica ggplot2] — facet H/M, verde
+│   ├── log(mx) Guerrero 2021        [gráfica ggplot2] — facet H/M, rojo
+│   └── log(mx) comparativo          [gráfica ggplot2] — 3 años superpuestos
 │
-├── ## Escritura de funciones  [R — oculto]
-│   └── función weight_mean() — media ponderada auxiliar
-│
-├── ## Crecimiento exponencial en México  [gráfica ggplot2]
-│   └── proyección geom_line + geom_point — 2010 a 2100
-│
-├── ## Crecimiento exponencial en Guerrero  [gráfica ggplot2]
-│   └── proyección geom_line + geom_point — 2010 a 2100
-│
-├── ## Tasas brutas y específicas de Argentina (Ejercicio)  [gráfica ggplot2]
-│   └── log(mx) por grupo de edad — Argentina 2018, color #8B4513
-│
-├── ## Tasas brutas y específicas (Guerrero [2010, 2019, 2021])
-│   │
-│   ├── [Limpieza defunciones INEGI]  [R — oculto]
-│   │   └── estandarización de grupos INEGI → CONAPO
-│   │
-│   ├── [Población a mitad de año]  [R — oculto]
-│   │   └── N(t+0.5) = N(t)·exp(0.5·r),  r = log(N(t+1)/N(t))
-│   │
-│   ├── [Cálculo de mx]  [R — oculto]
-│   │   └── join defunciones + población → mx = D/N
-│   │
-│   ├── Tasas brutas de mortalidad  [tabla kable]
-│   │   └── tasa bruta manual y ponderada por año y sexo
-│   │
-│   ├── [Gráfica] log(mx) Guerrero 2010  [gráfica ggplot2]
-│   │   └── facet H/M — color #2166ac (azul)
-│   │
-│   ├── [Gráfica] log(mx) Guerrero 2019  [gráfica ggplot2]
-│   │   └── facet H/M — color #4dac26 (verde)
-│   │
-│   ├── [Gráfica] log(mx) Guerrero 2021  [gráfica ggplot2]
-│   │   └── facet H/M — color #d7191c (rojo)
-│   │
-│   └── [Gráfica] log(mx) Guerrero comparativo 2010/2019/2021  [gráfica ggplot2]
-│       └── facet H/M — tres colores superpuestos
-│
-├── ## Comparativa internacional: Guerrero vs Noruega  [gráfica ggplot2]
-│   └── log(mx) por edad — Guerrero (rojo) vs Noruega (azul), 2019
-│       facet H/M, fuente WPP2024
+├── ## Comparativa Guerrero/Noruega  [gráfica ggplot2] — log(mx) por edad
 │
 ├── ## Tablas de vida
-│   │
-│   ├── ### Código para la construcción de la tabla de vida  [R — visible]
-│   │   └── función tabla_vida() con convenciones Coale-Demeny
-│   │
-│   ├── Tabla de vida Guerrero, Hombres, 2010  [tabla kable]
-│   ├── Tabla de vida Guerrero, Mujeres, 2010  [tabla kable]
-│   ├── Tabla de vida Guerrero, Hombres, 2019  [tabla kable]
-│   ├── Tabla de vida Guerrero, Mujeres, 2019  [tabla kable]
-│   ├── Tabla de vida Guerrero, Hombres, 2021  [tabla kable]
-│   ├── Tabla de vida Guerrero, Mujeres, 2021  [tabla kable]
-│   │   └── columnas: x, n, nmx, nax, nqx, npx, lx, ndx, Lx, Tx, ex⁰
-│   │
-│   ├── ### Cuadro de esperanzas de vida al nacer  [tabla kable]
-│   │   └── e₀ por año y sexo — 2010 / 2019 / 2021
-│   │
-│   ├── [Gráfica] Curva de supervivencia lx  [gráfica ggplot2]
-│   │   └── lx/1000 por grupo de edad — facet H/M, 3 años superpuestos
-│   │
-│   ├── [Gráfica] Probabilidad de muerte qx  [gráfica ggplot2]
-│   │   └── qx por grupo de edad — facet H/M, 3 años superpuestos
-│   │
-│   └── [Gráfica] Evolución de e₀  [gráfica ggplot2]
-│       └── línea H/M — puntos etiquetados en 2010, 2019, 2021
+│   ├── Función tabla_vida()         Construcción con Coale-Demeny
+│   ├── 6 tablas de vida             H y M × 2010, 2019, 2021 [kable]
+│   ├── ## e) Cuadro e₀              [tabla kable] — resumen por año y sexo
+│   └── ## f) Gráficas adicionales
+│       ├── lx — curva de supervivencia        [gráfica ggplot2]
+│       ├── dx — distribución de muertes       [gráfica ggplot2]
+│       ├── qx — probabilidad de muerte        [gráfica ggplot2]
+│       ├── px — probabilidad de sobrevivir    [gráfica ggplot2]
+│       ├── Lx — años-persona en intervalo     [gráfica ggplot2]
+│       ├── Tx — años-persona acumulados       [gráfica ggplot2]
+│       ├── ex — esperanza de vida por edad    [gráfica ggplot2]
+│       └── e₀ — evolución temporal            [gráfica ggplot2]
 │
-├── ## Análisis de resultados y conclusión  [texto]
-│   ├── ### Tendencia pre-pandemia (2010–2019)
-│   ├── ### Impacto del COVID-19 en 2021
-│   ├── ### Particularidades de Guerrero
-│   └── ### Reflexión final
+├── ## Fecundidad — México y Guerrero
+│   ├── ### TEF México (WPP 2024)
+│   │   ├── TEF años seleccionados   [gráfica ggplot2]
+│   │   ├── TGF histórica 1970–2024  [gráfica ggplot2]
+│   │   └── EMF histórica 1970–2024  [gráfica ggplot2]
+│   ├── ### TEF Guerrero (INEGI)
+│   │   ├── TEF por año              [gráfica ggplot2]
+│   │   └── Tabla TGF y EMF          [tabla kable]
+│   └── ### Comparativa México vs Guerrero
+│       ├── TGF comparativa          [gráfica ggplot2]
+│       ├── EMF comparativa          [gráfica ggplot2]
+│       └── TEF por grupo 2019       [gráfica ggplot2]
+│
+├── ## Estimación indirecta — Método Brass (CPV 2020)
+│   ├── Tabla q(x) con D(i), k(i)   [tabla kable]
+│   ├── Evolución q(x)               [gráfica ggplot2]
+│   └── D(i) por grupo de edad       [gráfica ggplot2]
+│
+├── ## g) Análisis y conclusión
+│   ├── Tendencia pre-pandemia (2010–2019)
+│   ├── Impacto COVID-19 en 2021
+│   ├── Fecundidad: transición acelerada
+│   ├── Mortalidad infantil — Método Brass
+│   └── Conclusión
 │
 └── ## Referencias
 ```
-
+ 
 ---
-
+ 
 ## Estructura del repositorio
-
+ 
 ```
 Demography_9219_Final_Project/
 ├── Proyecto_Final_9219.qmd              # Documento fuente en Quarto
@@ -188,158 +154,141 @@ Demography_9219_Final_Project/
     ├── WPP2024_deaths_f.xlsx            # Muertes ONU — mujeres
     ├── WPP2024_population_m.xlsx        # Población ONU — hombres
     ├── WPP2024_population_f.xlsx        # Población ONU — mujeres
+    ├── WPP2024_ASFR_by_Age5.xlsx        # TEF por grupo quinquenal ONU
     ├── Mx_ARG_GUA.csv                   # Tasas Argentina y Guatemala
     ├── diagrama_flujo_tablas_vida.png   # Diagrama de flujo
     ├── Foto_de_Guerrero.jpg             # Mapa para portada
     ├── UNAM-Logo.png                    # Logo UNAM
     └── FC-Logo.png                      # Logo FC (ver nota abajo)
 ```
-
+ 
 > **Nota sobre FC-Logo:** el logo original está en `.webp`, que LaTeX no soporta.
 > Conviértelo a PNG una sola vez antes de renderizar:
 > ```bash
-> # Mac (sips viene preinstalado):
+> # Mac:
 > sips -s format png data/FC-Logo.webp --out data/FC-Logo.png
->
-> # Linux (requiere ImageMagick):
+> # Linux:
 > convert data/FC-Logo.webp data/FC-Logo.png
->
-> # Windows (PowerShell con ImageMagick):
+> # Windows:
 > magick data/FC-Logo.webp data/FC-Logo.png
 > ```
-
+ 
 ---
-
+ 
 ## Resultados principales
-
+ 
 ### Esperanza de vida al nacer — Guerrero
-
+ 
 | Año  | e₀ Hombres | e₀ Mujeres | Diferencia H vs M |
 |------|:----------:|:----------:|:-----------------:|
 | 2010 | 73.32      | 80.25      | -6.93             |
 | 2019 | 74.30      | 81.40      | -7.10             |
 | 2021 | **68.66**  | **76.53**  | -7.87             |
-
-> **Guerrero perdió 5.6 años de esperanza de vida masculina en un solo año** —
-> el hallazgo central del análisis.
-
-### Tasas brutas de mortalidad (por 1,000 hab.)
-
-| Año  | Hombres | Mujeres |
-|------|:-------:|:-------:|
-| 2010 | ~5.8    | ~3.6    |
-| 2019 | ~6.1    | ~3.8    |
-| 2021 | ~8.4    | ~5.9    |
-
-### Parámetros del modelo
-
-| Parámetro | Valor |
-|-----------|-------|
-| Raíz de la tabla $l_0$ | 100,000 |
-| Grupo abierto | 85+ |
-| Convención $a_x$ | Coale-Demeny |
-| Población expuesta | Mitad de año — 1 julio |
-| Fórmula | $N(t+0.5) = N(t) \cdot e^{0.5r}$, $r = \ln(N_{t+1}/N_t)$ |
-
+ 
+> **Guerrero perdió 5.6 años de esperanza de vida masculina en un solo año.**
+ 
+### Fecundidad — Guerrero
+ 
+| Año  | TGF (hijos/mujer) | EMF (años) |
+|------|:-----------------:|:----------:|
+| 2010 | ~3.2              | ~26.5      |
+| 2019 | ~2.5              | ~27.2      |
+| 2021 | ~2.2              | ~27.5      |
+ 
+### Mortalidad infantil estimada — Método Brass
+ 
+| Indicador | q(x) | Año referencia |
+|-----------|:----:|:--------------:|
+| q(1)      | 21.6 por 1,000 | ~2019 |
+| q(3)      | 25.2 por 1,000 | ~2016 |
+| q(5)      | 29.6 por 1,000 | ~2014 |
+ 
 ---
-
+ 
 ## Cómo reproducir — instrucciones completas
-
+ 
 ### Paso 1 — Instalar R y RStudio
-
+ 
 - **R** (>= 4.2): https://cran.r-project.org
-- **RStudio** (recomendado): https://posit.co/download/rstudio-desktop
-
+- **RStudio**: https://posit.co/download/rstudio-desktop
 ### Paso 2 — Instalar Quarto
-
+ 
 Quarto viene incluido en versiones recientes de RStudio. Si no lo tienes:
 https://quarto.org/docs/get-started
-
+ 
 ### Paso 3 — Instalar paquetes de R
-
-Abre RStudio y corre en la consola **antes** de renderizar por primera vez:
-
+ 
 ```r
-# Paquetes de CRAN
 install.packages(c(
-  "tidyverse",    # manipulación de datos
-  "data.table",   # lectura rápida de CSV grandes
-  "readxl",       # lectura de Excel
-  "kableExtra",   # tablas con formato LaTeX
-  "lubridate",    # manejo de fechas
-  "mipfp",        # métodos demográficos
-  "openxlsx2",    # escritura de Excel
-  "rstan"         # requerido por DemoTools
+  "tidyverse", "data.table", "readxl", "kableExtra",
+  "lubridate", "mipfp", "openxlsx2", "rstan"
 ))
-
-# DemoTools desde GitHub
+ 
 install.packages("remotes")
 remotes::install_github("timriffe/DemoTools")
 ```
-
-> **Windows:** `rstan` requiere instalar
-> [Rtools](https://cran.r-project.org/bin/windows/Rtools/) primero.
+ 
+> **Windows:** `rstan` requiere [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
 >
-> **Mac:** si falla `rstan`, corre antes:
+> **Mac:** si falla `rstan`:
 > ```r
 > install.packages("StanHeaders")
 > install.packages("rstan", type = "source")
 > ```
-
+ 
 ### Paso 4 — Instalar LaTeX
-
-El PDF se genera con LuaLaTeX. Si no tienes LaTeX instalado, la opción
-más sencilla es TinyTeX — se instala desde R y descarga automáticamente
-los paquetes que falten al compilar:
-
+ 
 ```r
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```
-
-### Paso 5 — Convertir el logo (solo la primera vez)
-
+ 
+### Paso 5 — Convertir logo (solo la primera vez)
+ 
 ```bash
 sips -s format png data/FC-Logo.webp --out data/FC-Logo.png
 ```
-
+ 
 ### Paso 6 — Renderizar
-
+ 
 ```bash
 quarto render Proyecto_Final_9219.qmd
 ```
-
-O desde RStudio: abrir `Proyecto_Final_9219.qmd` → clic en **Render**.
-
-El PDF se genera en la misma carpeta como `Proyecto_Final_9219.pdf`.
-
+ 
 ---
-
+ 
 ## Fuentes de datos
-
-| Dato | Fuente | Incluido en repo |
-|------|--------|:----------------:|
-| Defunciones Guerrero 1990–2024 | INEGI | ✓ |
-| Muertes por edad y sexo (internacional) | UN WPP 2024 | ✓ |
-| Población por edad y sexo (internacional) | UN WPP 2024 | ✓ |
-| Tasas Argentina y Guatemala | Ejercicio de clase | ✓ |
-
+ 
+| Dato | Fuente | Incluido |
+|------|--------|:--------:|
+| Población 1950–2070 | CONAPO | ✓ |
+| Defunciones Guerrero 1990–2024 | SINAIS/INEGI | ✓ |
+| Muertes internacionales | UN WPP 2024 | ✓ |
+| Población internacional | UN WPP 2024 | ✓ |
+| TEF por grupo quinquenal | UN WPP 2024 | ✓ |
+| Fecundidad Censo 2020 | INEGI CPV 2020 | ✓ |
+| Mortalidad Censo 2020 | INEGI CPV 2020 | ✓ |
+| Tasas ARG y GUA | Ejercicio de clase | ✓ |
+ 
 ---
-
+ 
 ## Notas metodológicas
-
-- La **población expuesta** $N_x$ se aproxima al 1 de julio con crecimiento
-  exponencial: $N(t+0.5) = N(t) \cdot e^{0.5r}$, $r = \ln(N_{t+1}/N_t)$
-- Los valores de $a_x$ siguen las **convenciones Coale-Demeny**:
-  $a_0$ depende de $m_0$; $a_{1-4} = 1.5$; grupos quinquenales $a_x = 2.5$
-- Para el grupo abierto $85+$: $L_{85+} = l_{85+} / m_{85+}$
+ 
+- **Población expuesta:** $N(t+0.5) = N(t) \cdot e^{0.5r}$, $r = \ln(N_{t+1}/N_t)$
+- **Convenciones $a_x$:** Coale-Demeny — $a_0$ depende de $m_0$; $a_{1-4}=1.5$; quinquenales $a_x=2.5$
+- **Grupo abierto:** $L_{85+} = l_{85+}/m_{85+}$
+- **Método Brass:** multiplicadores Princeton-West (Trussell 1975), variante edad de la madre
 
 ---
-
+ 
 ## Referencias
+ 
+- Instituto Nacional de Estadística y Geografía (INEGI). (2010, 2019, 2021). *Estadísticas de defunciones registradas (EDR)*. Sistema Nacional de Información en Salud (SINAIS). Recuperado de https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/mortalidad/defunciones.asp
 
-- Coale, A. J., y Demeny, P. (1966). *Regional model life tables and stable populations*. Princeton University Press.
-- INEGI (2010, 2019, 2021). *Estadísticas de defunciones registradas*. SINAIS. https://www.inegi.org.mx
-- UN DESA (2024). *World Population Prospects 2024*. https://population.un.org/wpp/
-- SESNSP (2022). *Incidencia delictiva del fuero común: homicidio doloso 2011–2021*. https://www.gob.mx/sesnsp
-- Wachter, K. W. (2014). *Essential Demographic Methods*. Harvard University Press.
+- United Nations, Department of Economic and Social Affairs, Population Division. (2024). *World Population Prospects 2024: Deaths by single age and sex, medium variant, 1950-2023*. Recuperado de https://population.un.org/wpp/
+
+- United Nations, Department of Economic and Social Affairs, Population Division. (2024). *World Population Prospects 2024: Population by single age and sex, medium variant, 1950-2023*. Recuperado de https://population.un.org/wpp/
+
+- Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública (SESNSP). (2022). *Incidencia delictiva del fuero común: homicidio doloso 2011-2021*. Recuperado de https://www.gob.mx/sesnsp/acciones-y-programas/datos-abiertos-de-incidencia-delictiva
+
+- Wachter, K. W. (2014). Essential Demographic Methods. Harvard University Press.
