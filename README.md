@@ -10,7 +10,7 @@ Se mencionan los pasos para poder correr el código por primera vez.
 ---
  
 <p align="center">
-  <img src="data/Foto de Guerrero.jpg" width="600" alt="Estado de Guerrero, México"/>
+  <img src="Data/Foto%20de%20Guerrero.jpg" width="600" alt="Estado de Guerrero, México"/>
 </p>
 
 ---
