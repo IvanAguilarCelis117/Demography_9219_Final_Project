@@ -308,15 +308,7 @@ ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
 
 ```
 
-La pirámide de 1970 presenta la estructura clásica de una población
-expansiva: base extremadamente ancha que se estrecha de forma abrupta
-hacia edades superiores. Más de la mitad de la población tenía menos
-de 20 años, lo que refleja una fecundidad muy alta y mortalidad
-elevada en edades tempranas. Esta estructura corresponde a la primera
-etapa de la transición demográfica, donde los nacimientos abundantes
-no compensan la alta mortalidad infantil. Se incluye como referencia
-histórica para dimensionar el cambio estructural de las décadas
-siguientes.
+La pirámide de 1970 presenta la estructura clásica de una población expansiva: base extremadamente ancha que se estrecha de forma abrupta hacia edades superiores. Más de la mitad de la población tenía menos de 20 años, lo que refleja una fecundidad muy alta y mortalidad elevada en edades tempranas. Esta estructura corresponde a la primera etapa de la transición demográfica, donde los nacimientos abundantes no compensan la alta mortalidad infantil. Se incluye como referencia histórica para dimensionar el cambio estructural de las décadas siguientes.
 
 ### Pirámide poblacional de Guerrero 2010.
 
@@ -343,14 +335,7 @@ ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
 
 ```
 
-Para 2010 la base se ha estrechado notablemente respecto a 1970,
-señal del descenso sostenido de la fecundidad. El ensanchamiento en
-los grupos de 20 a 40 años corresponde a las cohortes nacidas durante
-el periodo de alta fecundidad de los años 70 y 80, ahora en edad
-productiva. En el lado masculino se aprecia una ligera contracción en
-el grupo de 25-35 años, consistente con la sobremortalidad por
-violencia que caracteriza al estado. La estructura es propia de una
-transición demográfica en curso.
+Para 2010 la base se ha estrechado notablemente respecto a 1970, señal del descenso sostenido de la fecundidad. El ensanchamiento en los grupos de 20 a 40 años corresponde a las cohortes nacidas durante el periodo de alta fecundidad de los años 70 y 80, ahora en edad productiva. En el lado masculino se aprecia una ligera contracción en el grupo de 25-35 años, consistente con la sobremortalidad por violencia que caracteriza al estado. La estructura es propia de una transición demográfica en curso.
 
 ### Pirámide poblacional de Guerrero 2019.
 
@@ -377,13 +362,7 @@ ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
 
 ```
 
-La pirámide de 2019 consolida las tendencias de 2010: la base sigue
-contrayéndose, el centro se engrosa y la cúspide tiene mayor peso
-relativo. El estado se acerca a una estructura estacionaria, con
-tasas de natalidad y mortalidad más equilibradas. La asimetría entre
-hombres y mujeres en edades jóvenes sigue visible aunque menos
-pronunciada. Este perfil anticipa el envejecimiento progresivo de la
-población guerrerense.
+La pirámide de 2019 consolida las tendencias de 2010: la base sigue contrayéndose, el centro se engrosa y la cúspide tiene mayor peso relativo. El estado se acerca a una estructura estacionaria, con tasas de natalidad y mortalidad más equilibradas. La asimetría entre hombres y mujeres en edades jóvenes sigue visible aunque menos pronunciada. Este perfil anticipa el envejecimiento progresivo de la población guerrerense.
 
 ### Pirámide poblacional de Guerrero 2021.
 
@@ -410,14 +389,7 @@ ggplot(pop_edo, aes(x = EDAD, y = POBLACION, fill = SEXO)) +
 
 ```
 
-A simple vista la pirámide de 2021 es casi idéntica a la de 2019,
-lo que puede parecer contraintuitivo dado el impacto del COVID-19.
-Esto se explica porque la pandemia afectó principalmente a mayores
-de 50 años, un segmento que en Guerrero representa una proporción
-pequeña de la población total, por lo que su efecto sobre la
-estructura etaria agregada no es visualmente perceptible. El impacto
-real de 2021 se hace evidente en las tablas de vida y las curvas de
-mortalidad, no en la pirámide.
+A simple vista la pirámide de 2021 es casi idéntica a la de 2019, lo que puede parecer contraintuitivo dado el impacto del COVID-19. Esto se explica porque la pandemia afectó principalmente a mayores de 50 años, un segmento que en Guerrero representa una proporción pequeña de la población total, por lo que su efecto sobre la estructura etaria agregada no es visualmente perceptible. El impacto real de 2021 se hace evidente en las tablas de vida y las curvas de mortalidad, no en la pirámide.
 
 ## Lectura de tabla de muertes de Argentina y Guatemala
 
@@ -540,13 +512,7 @@ data.frame(Año = c(decimal_date(as.Date("2010-06-25")),
 
 ```
 
-La gráfica proyecta la población mexicana desde 2010 hasta 2100 bajo
-una tasa de crecimiento constante calculada entre los censos de 2010
-y 2020. La curva crece de forma sostenida pero con pendiente
-decreciente, reflejo de una tasa moderada propia de una transición
-demográfica avanzada. Este modelo es útil como ejercicio metodológico,
-aunque en la práctica la fecundidad continúa descendiendo, por lo
-que la proyección real sería menos pronunciada.
+La gráfica proyecta la población mexicana desde 2010 hasta 2100 bajo una tasa de crecimiento constante calculada entre los censos de 2010 y 2020. La curva crece de forma sostenida pero con pendiente decreciente, reflejo de una tasa moderada propia de una transición demográfica avanzada. Este modelo es útil como ejercicio metodológico, aunque en la práctica la fecundidad continúa descendiendo, por lo que la proyección real sería menos pronunciada.
 
 ## Crecimiento exponencial en Guerrero
 
@@ -578,13 +544,7 @@ data.frame(Año = c(decimal_date(as.Date("2010-06-12")),
 
 ```
 
-La proyección de Guerrero muestra una pendiente notablemente más suave
-que la de México, reflejando su condición de estado expulsor neto de
-migración. La tasa de crecimiento calculada entre 2010 y 2020 es baja,
-resultado del descenso de fecundidad combinado con emigración sostenida
-hacia otras entidades y hacia Estados Unidos. Bajo el supuesto de tasa
-constante, la población guerrerense crecerá apenas moderadamente hacia
-finales del siglo.
+La proyección de Guerrero muestra una pendiente notablemente más suave que la de México, reflejando su condición de estado expulsor neto de migración. La tasa de crecimiento calculada entre 2010 y 2020 es baja, resultado del descenso de fecundidad combinado con emigración sostenida hacia otras entidades y hacia Estados Unidos. Bajo el supuesto de tasa constante, la población guerrerense crecerá apenas moderadamente hacia finales del siglo.
 
 ## Tasas brutas y específicas de Argentina (Ejercicio).
 
@@ -612,15 +572,7 @@ ggplot(argentina_data, aes(x = x, y = log(m_x), group = 1)) +
 
 ```
 
-Esta gráfica sirve como referencia metodológica para interpretar el
-comportamiento esperado de las tasas de mortalidad. La curva en
-escala logarítmica muestra la forma característica de J: tasas
-relativamente altas en el primer año de vida, descenso hacia la
-infancia y adolescencia, ligero repunte en adultos jóvenes, y
-crecimiento acelerado a partir de los 50 años. Argentina, sin los
-problemas de violencia estructural de Guerrero, presenta una curva
-suave sin irregularidades, útil para identificar desviaciones en los
-datos de Guerrero.
+Esta gráfica sirve como referencia metodológica para interpretar el comportamiento esperado de las tasas de mortalidad. La curva en escala logarítmica muestra la forma característica de J: tasas relativamente altas en el primer año de vida, descenso hacia la infancia y adolescencia, ligero repunte en adultos jóvenes, y crecimiento acelerado a partir de los 50 años. Argentina, sin los problemas de violencia estructural de Guerrero, presenta una curva suave sin irregularidades, útil para identificar desviaciones en los datos de Guerrero.
 
 ## Tasas brutas y específicas (Guerrero \[2010, 2019, 2021\]).
 
@@ -895,7 +847,7 @@ tasa_bruta_guerrero %>%
 
 ```
 
-### Gráficas
+## Gráficas
 
 Mostramos una por una, las gráficas logarítmicas de las tasas específicas de mortalidad de guerrero en los distintos años de estudio, con el fin de que se observen de mejor manera.
 
@@ -919,14 +871,7 @@ deaths_guerrero %>%
 
 ```
 
-La curva de 2010 ya muestra la anomalía característica de Guerrero:
-una joroba pronunciada en los hombres de 20 a 34 años que rompe el
-descenso suave esperado en esas edades. Esta elevación refleja la
-sobremortalidad por homicidios dolosos, que en ese año triplicaba el
-promedio nacional. En mujeres la curva sigue un patrón más regular,
-confirmando que la violencia afecta de forma desproporcionada a los
-hombres jóvenes. A partir de los 50 años ambas curvas se elevan de
-manera esperada por el envejecimiento.
+La curva de 2010 ya muestra la anomalía característica de Guerrero: una joroba pronunciada en los hombres de 20 a 34 años que rompe el descenso suave esperado en esas edades. Esta elevación refleja la sobremortalidad por homicidios dolosos, que en ese año triplicaba el promedio nacional. En mujeres la curva sigue un patrón más regular, confirmando que la violencia afecta de forma desproporcionada a los hombres jóvenes. A partir de los 50 años ambas curvas se elevan de manera esperada por el envejecimiento.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
@@ -948,13 +893,7 @@ deaths_guerrero %>%
 
 ```
 
-En 2019 la joroba masculina de 20-34 años persiste con ligeras
-variaciones. Lo más relevante es que este año sirve como línea base
-pre-pandémica: las tasas en edades adultas mayores son las más bajas
-de los tres periodos analizados, reflejo de la mejora gradual
-acumulada durante la década. La comparación con Noruega en la sección
-siguiente permite dimensionar la magnitud de la brecha respecto a un
-sistema de salud de alto desempeño.
+En 2019 la joroba masculina de 20-34 años persiste con ligeras variaciones. Lo más relevante es que este año sirve como línea base pre-pandémica: las tasas en edades adultas mayores son las más bajas de los tres periodos analizados, reflejo de la mejora gradual acumulada durante la década. La comparación con Noruega en la sección siguiente permite dimensionar la magnitud de la brecha respecto a un sistema de salud de alto desempeño.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
@@ -976,13 +915,7 @@ deaths_guerrero %>%
 
 ```
 
-La curva de 2021 es la más reveladora del análisis. En los grupos de
-50 a 74 años se eleva notablemente por encima de 2010 y 2019 en ambos
-sexos, huella directa del COVID-19. La joroba masculina de violencia
-en edades jóvenes se mantiene, lo que indica que la pandemia se sumó
-a los factores de mortalidad existentes sin desplazarlos. El resultado
-es un perfil de mortalidad inusualmente elevado en casi todos los
-grupos de edad, especialmente en hombres.
+La curva de 2021 es la más reveladora del análisis. En los grupos de 50 a 74 años se eleva notablemente por encima de 2010 y 2019 en ambos sexos, huella directa del COVID-19. La joroba masculina de violencia en edades jóvenes se mantiene, lo que indica que la pandemia se sumó a los factores de mortalidad existentes sin desplazarlos. El resultado es un perfil de mortalidad inusualmente elevado en casi todos los grupos de edad, especialmente en hombres.
 
 Finalmente mostramos una comparación entre los 3 años.
 
@@ -1015,13 +948,7 @@ ggplot(deaths_guerrero,
 
 ```
 
-La superposición permite visualizar simultáneamente dos fenómenos: la
-mejora gradual entre 2010 y 2019, y el retroceso drástico de 2021. La
-línea roja de 2021 se ubica consistentemente por encima de las otras
-a partir de los 50 años, mientras que en edades jóvenes las tres
-curvas son similares salvo por la joroba masculina que se amplía en
-2021. Esta gráfica es el resumen visual más completo del impacto
-combinado de la violencia estructural y la pandemia.
+La superposición permite visualizar simultáneamente dos fenómenos: la mejora gradual entre 2010 y 2019, y el retroceso drástico de 2021. La línea roja de 2021 se ubica consistentemente por encima de las otras a partir de los 50 años, mientras que en edades jóvenes las tres curvas son similares salvo por la joroba masculina que se amplía en 2021. Esta gráfica es el resumen visual más completo del impacto combinado de la violencia estructural y la pandemia.
 
 ## Comparativa internacional: Guerrero vs Noruega
 
@@ -1147,16 +1074,7 @@ bind_rows(noruega_mx, guerrero_mx) %>%
 
 ```
 
-La distancia vertical entre las dos curvas cuantifica la brecha de
-mortalidad entre un estado de alta marginación y uno de los países con
-mejor desempeño sanitario del mundo. En edades de 15 a 34 años la
-brecha masculina es especialmente pronunciada: mientras Noruega muestra
-tasas bajas y decrecientes, Guerrero exhibe la joroba de la violencia
-sin equivalente en la curva noruega. En edades mayores (60+) la
-brecha también es considerable, pero obedece a diferencias en acceso
-a servicios de salud y condiciones de vida. Noruega presenta la curva
-suave y continua de una población con mortalidad evitable cercana a
-cero.
+La distancia vertical entre las dos curvas cuantifica la brecha de mortalidad entre un estado de alta marginación y uno de los países con mejor desempeño sanitario del mundo. En edades de 15 a 34 años la brecha masculina es especialmente pronunciada: mientras Noruega muestra tasas bajas y decrecientes, Guerrero exhibe la joroba de la violencia sin equivalente en la curva noruega. En edades mayores (60+) la brecha también es considerable, pero obedece a diferencias en acceso a servicios de salud y condiciones de vida. Noruega presenta la curva suave y continua de una población con mortalidad evitable cercana a cero.
 
 ## Fecundidad — Guerrero (2010, 2019, 2021)
 
@@ -1274,14 +1192,8 @@ fec_mx %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
-La superposición de curvas para 1970, 1990, 2010, 2019 y 2021 muestra
-la transformación de la fecundidad mexicana en cinco décadas. En 1970
-la cúspide era muy alta y ancha, con tasas elevadas en todos los
-grupos de 15 a 44 años. Con cada periodo la curva se aplana y
-desciende. Para 2021 es notablemente más estrecha y baja, con la
-cúspide desplazada hacia el grupo de 25-29 años, reflejando la
-tendencia a postergar la maternidad asociada al aumento en escolaridad
-y participación laboral femenina.
+
+La superposición de curvas para 1970, 1990, 2010, 2019 y 2021 muestra la transformación de la fecundidad mexicana en cinco décadas. En 1970 la cúspide era muy alta y ancha, con tasas elevadas en todos los grupos de 15 a 44 años. Con cada periodo la curva se aplana y desciende. Para 2021 es notablemente más estrecha y baja, con la cúspide desplazada hacia el grupo de 25-29 años, reflejando la tendencia a postergar la maternidad asociada al aumento en escolaridad y participación laboral femenina.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=8}
 
@@ -1307,12 +1219,7 @@ em_mx %>%
 
 ```
 
-El descenso desde más de 6 hijos por mujer en 1970 hasta valores
-cercanos al nivel de reemplazo (2.1) ocurrió en apenas dos generaciones,
-impulsado por políticas de planificación familiar, urbanización y mayor
-acceso a educación femenina. La línea vertical de 2024 marca el umbral
-entre datos históricos y proyecciones. Es uno de los ejemplos más
-ilustrativos de transición demográfica acelerada en América Latina.
+El descenso desde más de 6 hijos por mujer en 1970 hasta valores cercanos al nivel de reemplazo (2.1) ocurrió en apenas dos generaciones, impulsado por políticas de planificación familiar, urbanización y mayor acceso a educación femenina. La línea vertical de 2024 marca el umbral entre datos históricos y proyecciones. Es uno de los ejemplos más ilustrativos de transición demográfica acelerada en América Latina.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=8}
 
@@ -1331,13 +1238,7 @@ em_mx %>%
 
 ```
 
-La edad media de la fecundidad en México ha aumentado sostenidamente
-desde 1970, pasando de aproximadamente 28 años a cerca de 30 años en
-la actualidad. Este desplazamiento refleja la postergación de la
-maternidad asociada a mayores niveles de escolaridad, mayor
-participación laboral femenina y uso más extendido de métodos
-anticonceptivos. La tendencia al alza es consistente con lo observado
-en países con niveles similares de desarrollo.
+La edad media de la fecundidad en México ha aumentado sostenidamente desde 1970, pasando de aproximadamente 28 años a cerca de 30 años en la actualidad. Este desplazamiento refleja la postergación de la maternidad asociada a mayores niveles de escolaridad, mayor participación laboral femenina y uso más extendido de métodos anticonceptivos. La tendencia al alza es consistente con lo observado en países con niveles similares de desarrollo.
 
 ### Tasas Específicas de Fecundidad — Guerrero
 
@@ -1383,6 +1284,29 @@ tgf_gro <- data.frame(
 
 ```
 
+```{r, echo = FALSE, results = 'markup'}
+
+cat("=== Población femenina a mitad de año (N) — para Excel TGF/TBR/TNR ===\n\n")
+
+pop_guerrero %>%
+  filter(SEXO == "Mujeres",
+         GRUPO %in% c("15-19","20-24","25-29",
+                      "30-34","35-39","40-44","45-49"),
+         ANIO %in% c(2010, 2019)) %>%
+  arrange(ANIO, GRUPO) %>%
+  print(n = 14)
+
+cat("\n=== TEF y TGF verificadas ===\n")
+fec_gro %>%
+  select(grupo, TEF_2010, TEF_2019) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2))) %>%
+  print()
+
+cat(paste0("\nTGF 2010 = ", round(tgf_gro$TGF[tgf_gro$Time==2010], 4)))
+cat(paste0("\nTGF 2019 = ", round(tgf_gro$TGF[tgf_gro$Time==2019], 4)))
+
+```
+
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
 # TEF por grupo de edad — Guerrero
@@ -1407,14 +1331,7 @@ fec_gro %>%
 
 ```
 
-Las tres curvas muestran el mismo patrón descendente de México pero
-con valores considerablemente más altos en todos los grupos de edad.
-La cúspide se mantiene en el grupo de 20-24 años en los tres periodos,
-contrastando con la tendencia nacional de desplazamiento hacia los
-25-29 años — lo que indica que en Guerrero la maternidad temprana
-sigue siendo más frecuente. El descenso más pronunciado entre 2010 y
-2021 se concentra en los grupos de 15-19 y 20-24 años, indicando una
-reducción acelerada de la fecundidad adolescente y juvenil.
+Las tres curvas muestran el mismo patrón descendente de México pero con valores considerablemente más altos en todos los grupos de edad. La cúspide se mantiene en el grupo de 20-24 años en los tres periodos, contrastando con la tendencia nacional de desplazamiento hacia los 25-29 años — lo que indica que en Guerrero la maternidad temprana sigue siendo más frecuente. El descenso más pronunciado entre 2010 y 2021 se concentra en los grupos de 15-19 y 20-24 años, indicando una reducción acelerada de la fecundidad adolescente y juvenil.
 
 ```{r, echo = FALSE}
 
@@ -1428,12 +1345,7 @@ tgf_gro %>%
 
 ```
 
-La caída de la TGF de hijos por mujer en 2010 a 2021 representa un descenso de casi un hijo por mujer en una
-sola década, una velocidad de cambio notable. La línea del nivel de
-reemplazo ilustra que Guerrero está a punto de cruzar ese umbral,
-lo que tendría implicaciones importantes para la dinámica poblacional
-futura. Si la tendencia continúa, el estado podría experimentar
-crecimiento natural nulo o negativo en las próximas décadas.
+La caída de la TGF de hijos por mujer en 2010 a 2021 representa un descenso de casi un hijo por mujer en una sola década, una velocidad de cambio notable. La línea del nivel de reemplazo ilustra que Guerrero está a punto de cruzar ese umbral, lo que tendría implicaciones importantes para la dinámica poblacional futura. Si la tendencia continúa, el estado podría experimentar crecimiento natural nulo o negativo en las próximas décadas.
 
 ### Comparativa: México vs Guerrero
 
@@ -1471,13 +1383,7 @@ tgf_comp %>%
 
 ```
 
-Guerrero mantiene una TGF sistemáticamente superior a la nacional en
-los tres periodos, aunque ambas convergen hacia el nivel de reemplazo.
-La brecha se ha reducido: en 2010 la diferencia era de aproximadamente
-1.0 hijo por mujer, mientras que en 2021 se ha acortado a menos de
-0.5. Esta convergencia sugiere que la transición demográfica en
-Guerrero se está acelerando, con un rezago histórico de una o dos
-décadas respecto al promedio nacional.
+Guerrero mantiene una TGF sistemáticamente superior a la nacional en los tres periodos, aunque ambas convergen hacia el nivel de reemplazo. La brecha se ha reducido: en 2010 la diferencia era de aproximadamente 1.0 hijo por mujer, mientras que en 2021 se ha acortado a menos de 0.5. Esta convergencia sugiere que la transición demográfica en Guerrero se está acelerando, con un rezago histórico de una o dos décadas respecto al promedio nacional.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
@@ -1498,13 +1404,7 @@ tgf_comp %>%
 
 ```
 
-La edad media de la fecundidad es consistentemente menor en Guerrero
-que en México en los tres años analizados, lo que refleja que las
-mujeres guerrerenses tienen sus hijos a edades más tempranas. Esta
-diferencia está asociada a menores tasas de asistencia escolar en
-educación media superior, mayor proporción de población rural y menor
-acceso a métodos anticonceptivos modernos. La tendencia al alza en
-ambas series sugiere que la brecha se irá cerrando gradualmente.
+La edad media de la fecundidad es consistentemente menor en Guerrero que en México en los tres años analizados, lo que refleja que las mujeres guerrerenses tienen sus hijos a edades más tempranas. Esta diferencia está asociada a menores tasas de asistencia escolar en educación media superior, mayor proporción de población rural y menor acceso a métodos anticonceptivos modernos. La tendencia al alza en ambas series sugiere que la brecha se irá cerrando gradualmente.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
@@ -1536,14 +1436,7 @@ bind_rows(tef_mx_2019, tef_gro_2019) %>%
 
 ```
 
-La comparación por grupos de edad en 2019 revela dónde se concentra
-la diferencia entre ambas poblaciones. Guerrero supera a México en
-todos los grupos de 15 a 34 años, con la brecha más amplia en el grupo
-de 20-24 años. A partir de los 35 años las curvas se acercan y
-prácticamente convergen en los grupos de mayor edad. Esto confirma
-que la diferencia en fecundidad total entre Guerrero y México se
-explica principalmente por la mayor fecundidad temprana y juvenil
-del estado.
+La comparación por grupos de edad en 2019 revela dónde se concentra la diferencia entre ambas poblaciones. Guerrero supera a México en todos los grupos de 15 a 34 años, con la brecha más amplia en el grupo de 20-24 años. A partir de los 35 años las curvas se acercan y prácticamente convergen en los grupos de mayor edad. Esto confirma que la diferencia en fecundidad total entre Guerrero y México se explica principalmente por la mayor fecundidad temprana y juvenil del estado.
 
 ```{r, echo = FALSE}
 
@@ -1572,15 +1465,11 @@ left_join(tgf, emf, by = "Año") %>%
 
 ## Estimación indirecta de mortalidad infantil — Método Brass
 
-El método Brass estima la probabilidad de muerte $q(x)$ a partir de
-datos censales sobre hijos nacidos vivos e hijos fallecidos por grupo
-de edad de la madre, usando multiplicadores del modelo Princeton-West
-(Trussell, 1975):
+El método Brass estima la probabilidad de muerte $q(x)$ a partir de datos censales sobre hijos nacidos vivos e hijos fallecidos por grupo de edad de la madre, usando multiplicadores del modelo Princeton-West (Trussell, 1975):
 
 $$q(x) = k(i) \cdot D(i)$$
 
-donde $D(i) = \text{hijos fallecidos} / \text{hijos nacidos vivos}$ y
-$k(i)$ corrige el sesgo por la estructura de la fecundidad.
+donde $D(i) = \text{hijos fallecidos} / \text{hijos nacidos vivos}$ y $k(i)$ corrige el sesgo por la estructura de la fecundidad.
 
 ```{r, echo = FALSE}
 
@@ -1643,15 +1532,7 @@ brass %>%
 
 ```
 
-La tendencia descendente de izquierda a derecha confirma que la
-mortalidad infantil en Guerrero ha mejorado progresivamente a lo largo
-de la última década y media. La estimación más confiable metodológicamente
-es la del grupo de madres de 25-29 años — q(3) ≈ 25.2 por 1,000,
-correspondiente a 2016, ya que ese grupo minimiza los sesgos de
-selectividad y memoria asociados a grupos de edad extremos. La
-mejora observada es consistente con los avances en esperanza de vida
-documentados en las tablas de vida para 2010 y 2019.
-
+La tendencia descendente de izquierda a derecha confirma que la mortalidad infantil en Guerrero ha mejorado progresivamente a lo largo de la última década y media. La estimación más confiable metodológicamente es la del grupo de madres de 25-29 años — q(3) ≈ 25.2 por 1,000, correspondiente a 2016, ya que ese grupo minimiza los sesgos de selectividad y memoria asociados a grupos de edad extremos. La mejora observada es consistente con los avances en esperanza de vida documentados en las tablas de vida para 2010 y 2019.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=8}
 
@@ -1670,21 +1551,9 @@ brass %>%
 
 ```
 
-La proporción de hijos fallecidos D(i) aumenta monotónicamente con la
-edad de la madre. Esto no significa que las madres mayores sean más
-peligrosas para sus hijos: refleja que tuvieron sus hijos en un pasado
-más lejano, cuando las condiciones de salud eran peores. El incremento
-de D(i) con la edad es en gran medida un efecto de periodo histórico.
-Este patrón ascendente y regular es la señal de que los datos son de
-buena calidad y el Método Brass puede aplicarse con confianza.
+La proporción de hijos fallecidos D(i) aumenta monotónicamente con la edad de la madre. Esto no significa que las madres mayores sean más peligrosas para sus hijos: refleja que tuvieron sus hijos en un pasado más lejano, cuando las condiciones de salud eran peores. El incremento de D(i) con la edad es en gran medida un efecto de periodo histórico. Este patrón ascendente y regular es la señal de que los datos son de buena calidad y el Método Brass puede aplicarse con confianza.
 
-La estimación más confiable del método Brass es la del grupo de madres
-de **25-29 años** — $q(3) = 0.0252$ — que corresponde aproximadamente
-al año **2016.5**. Esto indica que alrededor de 25 niños de cada 1,000
-nacidos vivos en Guerrero morían antes de cumplir 3 años hacia mediados
-de la década pasada, valor consistente con el nivel de marginación muy
-alto del estado.
-
+La estimación más confiable del método Brass es la del grupo de madres de **25-29 años** — $q(3) = 0.0252$ — que corresponde aproximadamente al año **2016.5**. Esto indica que alrededor de 25 niños de cada 1,000 nacidos vivos en Guerrero morían antes de cumplir 3 años hacia mediados de la década pasada, valor consistente con el nivel de marginación muy alto del estado.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
@@ -2141,93 +2010,594 @@ e0_resumen %>%
 
 La caída de 2021 es visualmente dramática, especialmente en hombres que bajan casi 6 años respecto a 2019. La brecha entre sexos se amplía en 2021.
 
+### h) Tabla de vida de causa eliminada — Homicidios, Guerrero 2019
+
+La tabla de vida de causa eliminada responde a la pregunta: **¿cuánto aumentaría la esperanza de vida si se eliminaran los homicidios como causa de muerte?** Bajo el modelo de riesgos en competencia, se recalculan las tasas de mortalidad restando las defunciones por homicidio de las defunciones totales, manteniendo la misma población expuesta.
+
+$$m_x^* = \frac{D_x - D_x^{\text{hom}}}{N_x}$$
+
+```{r, echo = FALSE}
+
+# Homicidios Guerrero 2019 — INEGI/EDR
+homicidios <- data.frame(
+  GRUPO = c("0","1-4","5-9","10-14","15-19","20-24","25-29",
+            "30-34","35-39","40-44","45-49","50-54","55-59",
+            "60-64","65-69","70-74","75-79","80-84","85+"),
+  D_hom = c(0,  0,  1, 10, 119, 226, 273, 247, 180, 190,
+            138, 96, 62,  41,  20,  10,   8,   5,   3),
+  D_muj = c(2,  4,  3,  1,  19,  24,  17,  25,  22,  17,
+             11,  8,  8,   7,   5,   3,   1,   1,   1)
+)
+
+# Defunciones sin homicidios → nueva mx
+base_ce <- deaths_guerrero %>%
+  filter(ANIO == 2019) %>%
+  select(GRUPO, SEXO, D, N, mx) %>%
+  left_join(
+    homicidios %>%
+      pivot_longer(cols = c(D_hom, D_muj),
+                   names_to  = "SEXO",
+                   values_to = "D_homicidio") %>%
+      mutate(SEXO = ifelse(SEXO == "D_hom", "Hombres", "Mujeres")),
+    by = c("GRUPO", "SEXO")
+  ) %>%
+  mutate(
+    D_prima  = pmax(D - D_homicidio, 0),
+    mx       = D_prima / N,
+    GRUPO    = factor(GRUPO, levels = grupos_orden)
+  ) %>%
+  arrange(SEXO, GRUPO) %>%
+  select(GRUPO, SEXO, mx)
+
+# Tablas de vida sin homicidios
+tablas_ce <- base_ce %>%
+  group_by(SEXO) %>%
+  group_modify(~ tabla_vida(.x)) %>%
+  ungroup()
+
+# Cuadro comparativo e₀
+e0_comp <- bind_rows(
+  tablas %>%
+    filter(ANIO == 2019, GRUPO == "0") %>%
+    select(SEXO, ex) %>%
+    mutate(Escenario = "Con homicidios"),
+  tablas_ce %>%
+    filter(GRUPO == "0") %>%
+    select(SEXO, ex) %>%
+    mutate(Escenario = "Sin homicidios")
+) %>%
+  pivot_wider(names_from = Escenario, values_from = ex) %>%
+  mutate(
+    Ganancia = round(`Sin homicidios` - `Con homicidios`, 2),
+    across(where(is.numeric), ~ round(.x, 2))
+  ) %>%
+  rename(Sexo = SEXO)
+
+e0_comp %>%
+  kable(caption = "Esperanza de vida al nacer — con y sin homicidios, Guerrero 2019",
+        booktabs = TRUE,
+        col.names = c("Sexo", "Con homicidios", "Sin homicidios", "Ganancia (años)")) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+```{r, echo = FALSE, fig.height=5, fig.width=8}
+
+# Gráfica comparativa e₀
+e0_comp %>%
+  pivot_longer(cols = c(`Con homicidios`, `Sin homicidios`),
+               names_to = "Escenario", values_to = "e0") %>%
+  ggplot(aes(x = Sexo, y = e0, fill = Escenario)) +
+  geom_col(position = "dodge", width = 0.6) +
+  geom_text(aes(label = round(e0, 1)),
+            position = position_dodge(width = 0.6),
+            vjust = -0.4, size = 3.5) +
+  scale_fill_manual(values = c("Con homicidios" = "#d7191c",
+                                "Sin homicidios" = "#2166ac")) +
+  labs(title    = "Esperanza de vida al nacer — Guerrero 2019",
+       subtitle = "Escenario con y sin homicidios como causa de muerte",
+       x = "", y = "e₀ (años)", fill = "") +
+  theme_minimal(base_size = 12)
+
+```
+
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+# Gráfica comparativa qx — con y sin homicidios
+bind_rows(
+  tablas %>%
+    filter(ANIO == 2019) %>%
+    select(GRUPO, SEXO, qx) %>%
+    mutate(Escenario = "Con homicidios"),
+  tablas_ce %>%
+    select(GRUPO, SEXO, qx) %>%
+    mutate(Escenario = "Sin homicidios")
+) %>%
+  ggplot(aes(x = GRUPO, y = qx,
+             color = Escenario, group = Escenario)) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ SEXO) +
+  scale_color_manual(values = c("Con homicidios" = "#d7191c",
+                                 "Sin homicidios" = "#2166ac")) +
+  labs(title    = "Probabilidad de muerte q(x) — Guerrero 2019",
+       subtitle = "Con y sin homicidios como causa de muerte",
+       x = "Grupo de edad", y = "q(x)", color = "") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+
+# Gráfica comparativa qx — con y sin homicidios
+bind_rows(
+  tablas %>%
+    filter(ANIO == 2019) %>%
+    select(GRUPO, SEXO, qx) %>%
+    mutate(Escenario = "Con homicidios"),
+  tablas_ce %>%
+    select(GRUPO, SEXO, qx) %>%
+    mutate(Escenario = "Sin homicidios")
+) %>%
+  ggplot(aes(x = GRUPO, y = qx,
+             color = Escenario, group = Escenario)) +
+  geom_line(linewidth = 0.9) +
+  geom_point(size = 1.8) +
+  facet_wrap(~ SEXO) +
+  scale_color_manual(values = c("Con homicidios" = "#d7191c",
+                                 "Sin homicidios" = "#2166ac")) +
+  scale_y_log10() +                         
+  labs(title    = "Probabilidad de muerte q(x) — Guerrero 2019",
+       subtitle = "Escala logarítmica — con y sin homicidios como causa de muerte",
+       x = "Grupo de edad", y = "log q(x)", color = "") + 
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+### d) Tasas Brutas y Netas de Reproducción — Guerrero 2010 y 2019
+
+La Tasa Bruta de Reproducción (TBR) mide el número promedio de hijas
+que tendría una mujer a lo largo de su vida reproductiva, sin
+considerar la mortalidad. La Tasa Neta de Reproducción (TNR) incorpora
+además la probabilidad de sobrevivir hasta el punto medio de cada
+grupo de edad fértil.
+
+$$TBR = 5 \times K \times \sum_{x=15}^{45} {}_5f_x = TGF \times K$$
+
+$$TNR = 5 \times K \times \sum_{x=15}^{45} {}_5f_x \times {}_{x+2.5}P_0(f)$$
+
+donde $K = \frac{100}{205} \approx 0.4878$ es la proporción de
+nacimientos femeninos y ${}_{x+2.5}P_0(f) = \frac{{}_5L_x^F}{5 \cdot l_0^F}$
+es la probabilidad de sobrevivencia femenina desde el nacimiento hasta
+el punto medio del intervalo $[x, x+5)$.
+
+```{r, echo = FALSE}
+
+# Proporción de nacimientos femeninos K = 100/205
+K <- 100 / 205   # ≈ 0.4878  (105 hombres por cada 100 mujeres)
+
+# ── TBR = TGF × K ────────────────────────────────────────────────────────────
+tbr_gro <- tgf_gro %>%
+  filter(Time %in% c(2010, 2019)) %>%
+  mutate(TBR = TGF * K)
+
+# ── TNR: factor de sobrevivencia = Lx / (5 * l0) ────────────────────────────
+# Según notas de clase: x+2.5 P0(f) = Lx_fem / (5 * l0)
+# Es la probabilidad de sobrevivir al PUNTO MEDIO del intervalo quinquenal
+
+lx_fem_corr <- tablas %>%
+  filter(SEXO == "Mujeres", ANIO %in% c(2010, 2019)) %>%
+  select(ANIO, GRUPO, Lx) %>%
+  filter(GRUPO %in% c("15-19","20-24","25-29",
+                      "30-34","35-39","40-44","45-49")) %>%
+  mutate(
+    # x+2.5 P0(f) = Lx / (5 * l0),  l0 = 100,000
+    p_x_medio = Lx / (5 * 100000)
+  )
+
+# TEF femenina = TEF × K / 1000 (convertir de por 1,000 a proporción)
+tef_fem_2010 <- fec_gro %>%
+  select(grupo, TEF_2010) %>%
+  rename(GRUPO = grupo, TEF = TEF_2010) %>%
+  mutate(ANIO = 2010)
+
+tef_fem_2019 <- fec_gro %>%
+  select(grupo, TEF_2019) %>%
+  rename(GRUPO = grupo, TEF = TEF_2019) %>%
+  mutate(ANIO = 2019)
+
+tef_fem <- bind_rows(tef_fem_2010, tef_fem_2019) %>%
+  mutate(TEF_fem = TEF * K / 1000)
+
+# ── TNR = 5 × Σ (f_x^F × x+2.5 P0) ─────────────────────────────────────────
+tnr_calc <- tef_fem %>%
+  left_join(lx_fem_corr, by = c("GRUPO", "ANIO")) %>%
+  group_by(ANIO) %>%
+  summarise(
+    TNR = 5 * sum(TEF_fem * p_x_medio, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+```
+
+```{r, echo = FALSE}
+
+# Tabla detallada del cálculo de TNR para 2019 — estilo notas de clase
+tef_fem %>%
+  left_join(lx_fem_corr, by = c("GRUPO", "ANIO")) %>%
+  filter(ANIO == 2019) %>%
+  mutate(
+    producto = TEF_fem * p_x_medio * 5
+  ) %>%
+  select(GRUPO, TEF, TEF_fem, Lx, p_x_medio, producto) %>%
+  mutate(
+    TEF        = round(TEF, 4),
+    TEF_fem    = round(TEF_fem * 1000, 4),
+    Lx         = round(Lx, 0),
+    p_x_medio  = round(p_x_medio, 4),
+    producto   = round(producto, 6)
+  ) %>%
+  bind_rows(
+    summarise(., GRUPO = "TOTAL",
+              TEF = NA, TEF_fem = round(sum(TEF_fem * 1000), 4),
+              Lx = NA, p_x_medio = NA,
+              producto = round(sum(producto), 4))
+  ) %>%
+  kable(caption = "Cálculo detallado de la TNR — Guerrero 2019",
+        booktabs = TRUE,
+        col.names = c("Grupo edad", "f(x,5) total",
+                      "f(x,5)fem (×1000)",
+                      "L(x)fem", "x+2.5 P₀(f)", "Producto")) %>%
+  kable_styling(latex_options = c("striped","hold_position","scale_down"),
+                font_size = 9)
+
+```
+
+```{r, echo = FALSE}
+
+# ── Tabla resumen TGF, TBR, TNR ──────────────────────────────────────────────
+resumen_repro <- tbr_gro %>%
+  rename(Año = Time) %>%
+  left_join(tnr_calc %>% rename(Año = ANIO), by = "Año") %>%
+  mutate(
+    across(c(TGF, TBR, TNR), ~ round(.x, 4)),
+    Interpretación = ifelse(TNR >= 0.95 & TNR <= 1.05,
+                        "Cerca del reemplazo",
+                        ifelse(TNR > 1, "Por encima del reemplazo",
+                                        "Por debajo del reemplazo"))
+  ) %>%
+  select(Año, TGF, TBR, TNR, Interpretación)
+
+resumen_repro %>%
+  kable(caption = "TGF, TBR y TNR — Guerrero 2010 y 2019",
+        booktabs = TRUE,
+        col.names = c("Año", "TGF", "TBR", "TNR", "Interpretación")) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+```{r, echo = FALSE, fig.height=4, fig.width=7}
+
+# Gráfica comparativa TGF, TBR, TNR
+resumen_repro %>%
+  pivot_longer(cols = c(TGF, TBR, TNR),
+               names_to = "Indicador", values_to = "Valor") %>%
+  ggplot(aes(x = factor(Año), y = Valor,
+             fill = Indicador, group = Indicador)) +
+  geom_col(position = "dodge", width = 0.6) +
+  geom_text(aes(label = round(Valor, 2)),
+            position = position_dodge(width = 0.6),
+            vjust = -0.4, size = 3) +
+  geom_hline(yintercept = 1, linetype = "dashed",
+             color = "gray50", linewidth = 0.7) +
+  geom_hline(yintercept = 2.1, linetype = "dashed",
+             color = "#8B1A1A", linewidth = 0.7) +
+  annotate("text", x = 0.6, y = 1.05,
+           label = "TNR = 1 (reemplazo)", size = 3, color = "gray50", hjust = 0) +
+  annotate("text", x = 0.6, y = 2.15,
+           label = "TGF = 2.1 (reemplazo)", size = 3, color = "#8B1A1A", hjust = 0) +
+  scale_fill_manual(values = c("TGF" = "#2166ac",
+                                "TBR" = "#4dac26",
+                                "TNR" = "#d7191c")) +
+  labs(title    = "TGF, TBR y TNR — Guerrero 2010 y 2019",
+       x = "Año", y = "Hijas por mujer / Hijos por mujer",
+       fill = "") +
+  theme_minimal(base_size = 11)
+
+```
+
+La TBR es siempre menor que la TGF porque considera únicamente los
+nacimientos femeninos — aproximadamente el 48.78% del total, dado que
+por cada 100 niñas nacen 105 niños ($K = 100/205$). La TNR es menor
+aún que la TBR porque incorpora la mortalidad femenina: el factor
+${}_{x+2.5}P_0(f) = L_x^F/(5 \cdot l_0)$ representa la probabilidad
+de que una recién nacida sobreviva hasta el punto medio de cada grupo
+de edad fértil. Cuando $TNR > 1$ la generación crece; cuando $TNR = 1$
+se reemplaza exactamente; cuando $TNR < 1$ decrece. La tabla detallada
+del cálculo permite verificar paso a paso la metodología seguida,
+en línea con el ejemplo de Chile del CELADE (2022).
+
+## c) Demostración: ¿por qué la Tasa de Reemplazo es igual a 2.1?
+
+La tasa de reemplazo generacional es el nivel de fecundidad necesario
+para que una generación se reproduzca exactamente a sí misma. El valor
+de **2.1 hijos por mujer** no es arbitrario: se deriva directamente de
+la relación entre la Tasa Neta de Reproducción (NRR), la Tasa Bruta de
+Reproducción (GRR) y la estructura de mortalidad femenina.
+
+---
+
+### Demostración general
+
+**Paso 1 — Tasa Neta de Reproducción (NRR)**
+
+La NRR mide el número promedio de hijas que una mujer tendría a lo
+largo de su vida, considerando la fecundidad y la mortalidad femenina:
+
+$$NRR = \sum_{x=\alpha}^{\beta} {}_nf_x^F \cdot \frac{{}_nL_x^F}{l_0^F}$$
+
+donde ${}_nf_x^F$ es la tasa específica de fecundidad femenina en
+$[x, x+n)$, ${}_nL_x^F$ son los años-persona vividos por las mujeres
+en ese intervalo, y $l_0^F$ es la raíz de la tabla de vida femenina.
+
+La NRR puede reescribirse como el producto de la probabilidad de
+sobrevivir hasta la edad reproductiva $p(\lambda)$ y la GRR:
+
+$$NRR = p(\lambda) \cdot GRR \implies GRR = \frac{NRR}{p(\lambda)}$$
+
+**Paso 2 — Tasa Bruta de Reproducción (GRR)**
+
+La GRR cuenta únicamente las hijas nacidas, sin considerar mortalidad:
+
+$$GRR = n \sum_{x=\alpha}^{\beta} {}_nf_x^F$$
+
+**Paso 3 — Relación entre TGF y GRR**
+
+La TGF cuenta **todos** los nacimientos (hijos e hijas). Como la
+proporción de niñas en cada nacimiento es $\frac{1}{1+SRB}$,
+las tasas específicas totales y femeninas se relacionan como:
+
+$${}_nf_x^F = \frac{{}_nf_x}{1 + SRB}$$
+
+Por lo tanto:
+
+$$TGF = n \sum_{x=\alpha}^{\beta} {}_nf_x
+      = GRR \cdot (1 + SRB)
+      = \frac{NRR}{p(\lambda)} \cdot (1 + SRB)$$
+
+**Paso 4 — Condición de reemplazo**
+
+Una población se reemplaza exactamente cuando $NRR = 1$. Sustituyendo:
+
+$$TGF^* = \frac{1}{p(\lambda)} \cdot (1 + SRB)$$
+
+Esta es la **fórmula general de la tasa de reemplazo**. Depende de
+dos parámetros: la razón de sexo al nacimiento ($SRB$) y la
+sobrevivencia femenina hasta la edad reproductiva ($p(\lambda)$).
+
+---
+
+### Aplicación numérica: valores universales
+
+En la práctica demográfica se usan los siguientes valores estándar:
+
+$$SRB = 1.05 \quad \text{(105 hombres por cada 100 mujeres al nacer)}$$
+
+$$\implies 1 + SRB = 2.05$$
+
+$$p(\lambda) \approx 0.98 \quad \text{(en poblaciones con baja mortalidad)}$$
+
+Sustituyendo en la fórmula general:
+
+$$TGF^* = \frac{1 + SRB}{p(\lambda)} = \frac{2.05}{0.98} \approx 2.09 \approx \mathbf{2.1}$$
+
+| Componente | Valor | Significado |
+|---|:---:|---|
+| NRR = 1 | — | Condición de reemplazo exacto |
+| Reemplazar a la madre | 1.00 | Base mínima |
+| Reemplazar al padre (vía nacimientos) | +1.00 | Total = 2.00 |
+| Corrección por SRB = 1.05 | ×2.05/2.00 | Solo ~48.8% de nacimientos son niñas |
+| Corrección por mortalidad | ÷0.98 | ~2% muere antes de reproducirse |
+| **TGF de reemplazo** | **≈ 2.1** | **Nivel de reemplazo** |
+
+---
+
+### Aplicación a Guerrero
+
+```{r, echo = FALSE}
+
+# Parámetros
+SRB      <- 1.05
+p_lambda <- 0.98   # sobrevivencia estándar baja mortalidad
+
+# TGF de reemplazo general
+TGF_reemplazo_gral <- (1 + SRB) / p_lambda
+
+# Sobrevivencia femenina real de Guerrero 2019
+# p(lambda) = lx(15) / l0 de la tabla de vida femenina 2019
+p_lambda_gro_2019 <- tablas %>%
+  filter(SEXO == "Mujeres", ANIO == 2019, GRUPO == "15-19") %>%
+  pull(lx) / 100000
+
+p_lambda_gro_2010 <- tablas %>%
+  filter(SEXO == "Mujeres", ANIO == 2010, GRUPO == "15-19") %>%
+  pull(lx) / 100000
+
+# TGF de reemplazo específica para Guerrero
+TGF_rep_2019 <- (1 + SRB) / p_lambda_gro_2019
+TGF_rep_2010 <- (1 + SRB) / p_lambda_gro_2010
+
+# TGF observada de Guerrero
+TGF_obs_2010 <- tgf_gro$TGF[tgf_gro$Time == 2010]
+TGF_obs_2019 <- tgf_gro$TGF[tgf_gro$Time == 2019]
+
+# Tabla comparativa
+data.frame(
+  Año              = c(2010, 2019),
+  `p(λ) Guerrero`  = round(c(p_lambda_gro_2010, p_lambda_gro_2019), 4),
+  `TGF reemplazo`  = round(c(TGF_rep_2010, TGF_rep_2019), 3),
+  `TGF observada`  = round(c(TGF_obs_2010, TGF_obs_2019), 3),
+  `Por encima (+)` = round(c(TGF_obs_2010 - TGF_rep_2010,
+                              TGF_obs_2019 - TGF_rep_2019), 3)
+) %>%
+  kable(caption = "Tasa de reemplazo específica y TGF observada — Guerrero",
+        booktabs = TRUE,
+        col.names = c("Año", "p(λ) Guerrero",
+                      "TGF reemplazo", "TGF observada",
+                      "Excedente")) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+La tabla muestra que Guerrero tiene una sobrevivencia femenina hasta
+la edad reproductiva ligeramente inferior al estándar de 0.98, lo que
+eleva su umbral de reemplazo por encima de 2.1. Sin embargo, la TGF
+observada en ambos años supera holgadamente ese umbral, confirmando
+que la población guerrerense aún crece por crecimiento natural. La
+convergencia hacia el reemplazo es clara: el excedente de 2010 es
+notablemente mayor que el de 2019, indicando que la transición
+demográfica avanza de forma acelerada en el estado.
+
+En poblaciones con **alta mortalidad** como la de Guerrero en décadas
+pasadas, $p(\lambda)$ era considerablemente menor, lo que implicaba
+un umbral de reemplazo más alto. Con la mejora sostenida en
+sobrevivencia femenina, el umbral efectivo se acerca al valor universal
+de 2.1, que aplica cuando la mortalidad antes de la edad reproductiva
+es prácticamente nula.
+
+## e) Comparativa TEF — Guerrero, México y Noruega (2019)
+
+Para contextualizar la fecundidad de Guerrero se comparan las Tasas
+Específicas de Fecundidad con México a nivel nacional y con Noruega,
+el mismo país de referencia utilizado en el análisis de mortalidad.
+Noruega representa una población con fecundidad baja, postergada y
+estable, característica de países con alta escolaridad femenina y
+pleno acceso a planificación familiar.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+# TEF Guerrero 2019 — ya calculada
+tef_gro_2019 <- fec_gro %>%
+  select(grupo, TEF_2019) %>%
+  rename(AgeGrp = grupo, TEF = TEF_2019) %>%
+  mutate(Region = "Guerrero")
+
+# TEF México 2019 — ya calculada
+tef_mx_2019 <- fec_mx %>%
+  filter(Year == 2019) %>%
+  select(AgeGrp, ASFR) %>%
+  rename(TEF = ASFR) %>%
+  mutate(Region = "México")
+
+# TEF Noruega 2019 — WPP2024
+col_region <- "Region, subregion, country or area *"
+
+fec_nor <- read_excel("Data/WPP2024_ASFR_by_Age5.xlsx",
+                      sheet = "Estimates", skip = 16) %>%
+  filter(.data[[col_region]] == "Norway",
+         Variant == "Estimates",
+         Year == 2019) %>%
+  select(`15-19`, `20-24`, `25-29`,
+         `30-34`, `35-39`, `40-44`, `45-49`) %>%
+  pivot_longer(everything(),
+               names_to  = "AgeGrp",
+               values_to = "TEF") %>%
+  mutate(TEF    = as.numeric(TEF),
+         Region = "Noruega")
+
+# Unir los tres
+tef_comp3 <- bind_rows(tef_gro_2019, tef_mx_2019, fec_nor) %>%
+  mutate(Region = factor(Region,
+                         levels = c("Guerrero", "México", "Noruega")))
+
+```
+
+```{r, echo = FALSE, fig.height=5, fig.width=9}
+
+ggplot(tef_comp3,
+       aes(x = AgeGrp, y = TEF,
+           color = Region, group = Region)) +
+  geom_line(linewidth = 1.0) +
+  geom_point(size = 2.5) +
+  scale_color_manual(
+    values = c("Guerrero" = "#d7191c",
+               "México"   = "#2166ac",
+               "Noruega"  = "#4dac26")
+  ) +
+  labs(title    = "Tasas Específicas de Fecundidad — Guerrero, México y Noruega (2019)",
+       subtitle = "Por grupo de edad de la madre",
+       x = "Grupo de edad de la madre",
+       y = "TEF (por 1,000 mujeres)",
+       color = "") +
+  theme_minimal(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r, echo = FALSE}
+
+# Tabla comparativa TGF y EMF
+tef_comp3 %>%
+  group_by(Region) %>%
+  summarise(
+    TGF = round(sum(TEF, na.rm = TRUE) * 5 / 1000, 2),
+    EMF = round(
+      sum((as.numeric(substr(AgeGrp, 1, 2)) + 2.5) * TEF,
+          na.rm = TRUE) / sum(TEF, na.rm = TRUE), 1),
+    .groups = "drop"
+  ) %>%
+  rename(`Región` = Region,
+         `TGF (hijos/mujer)` = TGF,
+         `EMF (años)` = EMF) %>%
+  kable(caption = "TGF y EMF — Guerrero, México y Noruega (2019)",
+        booktabs = TRUE) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+Las tres curvas muestran perfiles de fecundidad muy distintos.
+Guerrero presenta la cúspide más alta y temprana, concentrada en el
+grupo de 20-24 años, reflejo de una maternidad joven asociada a
+menores niveles de escolaridad y menor acceso a métodos
+anticonceptivos. México muestra una cúspide más suave y desplazada
+hacia los 25-29 años. Noruega presenta la cúspide más tardía
+(30-34 años) y más baja, característica de poblaciones con alta
+escolaridad femenina y planificación familiar extendida. La brecha
+entre Guerrero y Noruega en los grupos de 15-24 años es
+especialmente pronunciada, señalando que la fecundidad adolescente
+y juvenil es el principal diferenciador entre ambas poblaciones.
 
 ## g) Análisis de resultados y conclusión
- 
+
 ### Tendencia pre-pandemia (2010–2019)
- 
-Entre 2010 y 2019, Guerrero mostró avances modestos pero sostenidos en
-sus indicadores demográficos. La esperanza de vida al nacer aumentó
-1.0 año para los hombres (de 73.3 a 74.3 años) y 1.2 años para las
-mujeres (de 80.2 a 81.4 años). En paralelo, la Tasa Global de
-Fecundidad descendió de forma pronunciada, acercándose al nivel de
-reemplazo generacional (2.1 hijos por mujer), lo que refleja el avance
-de la transición demográfica en el estado.
- 
-Sin embargo, estos progresos ocurrieron en un contexto estructuralmente
-adverso. La tasa de homicidios de Guerrero en 2010 triplicaba el
-promedio nacional, lo que se traduce en una joroba característica en
-las curvas de mortalidad masculina de 20 a 34 años visible en los tres
-años analizados. La estimación indirecta por Método Brass confirma que
-hacia 2016, aproximadamente 25 de cada 1,000 niños nacidos vivos en
-Guerrero morían antes de cumplir 3 años — un nivel elevado respecto al
-promedio nacional, consistente con el primer lugar en marginación que
-ocupa el estado según CONAPO (2020).
- 
+
+Entre 2010 y 2019, Guerrero mostró avances modestos pero sostenidos en sus indicadores demográficos. La esperanza de vida al nacer aumentó 1.0 año para los hombres (de 73.3 a 74.3 años) y 1.2 años para las mujeres (de 80.2 a 81.4 años). En paralelo, la Tasa Global de Fecundidad descendió de forma pronunciada, acercándose al nivel de reemplazo generacional (2.1 hijos por mujer), lo que refleja el avance de la transición demográfica en el estado.
+
+Sin embargo, estos progresos ocurrieron en un contexto estructuralmente adverso. La tasa de homicidios de Guerrero en 2010 triplicaba el promedio nacional, lo que se traduce en una joroba característica en las curvas de mortalidad masculina de 20 a 34 años visible en los tres años analizados. La estimación indirecta por Método Brass confirma que hacia 2016, aproximadamente 25 de cada 1,000 niños nacidos vivos en Guerrero morían antes de cumplir 3 años — un nivel elevado respecto al promedio nacional, consistente con el primer lugar en marginación que ocupa el estado según CONAPO (2020).
+
 ### Impacto del COVID-19 en 2021
- 
-El año 2021 constituye el hallazgo central del análisis. La esperanza
-de vida masculina cayó 5.6 años en un solo año (de 74.3 a 68.7 años),
-y la femenina 4.9 años (de 81.4 a 76.5 años). Esta caída supera el
-promedio nacional de 3 a 4 años y representa el retroceso más severo
-registrado en el estado en el periodo analizado.
- 
-El exceso de mortalidad de 2021 se explica por la confluencia de dos
-factores: primero, un sistema de salud ya debilitado por la alta
-marginación que tuvo menor capacidad de respuesta ante la pandemia;
-segundo, la violencia estructural continuó elevando las tasas masculinas
-de 15 a 44 años, como se observa en la gráfica de $\log(m_x)$. La curva
-de $d_x$ muestra además un desplazamiento del pico de defunciones hacia
-edades adultas medias, evidenciando la sobremortalidad atípica del año
-pandémico.
- 
+
+El año 2021 constituye el hallazgo central del análisis. La esperanza de vida masculina cayó 5.6 años en un solo año (de 74.3 a 68.7 años), y la femenina 4.9 años (de 81.4 a 76.5 años). Esta caída supera el promedio nacional de 3 a 4 años y representa el retroceso más severo registrado en el estado en el periodo analizado.
+
+El exceso de mortalidad de 2021 se explica por la confluencia de dos factores: primero, un sistema de salud ya debilitado por la alta marginación que tuvo menor capacidad de respuesta ante la pandemia; segundo, la violencia estructural continuó elevando las tasas masculinas de 15 a 44 años, como se observa en la gráfica de $\log(m_x)$. La curva de $d_x$ muestra además un desplazamiento del pico de defunciones hacia edades adultas medias, evidenciando la sobremortalidad atípica del año pandémico.
+
 ### Fecundidad: transición acelerada
- 
-El análisis de fecundidad revela una caída sostenida y acelerada. Las
-Tasas Específicas de Fecundidad de todos los grupos de edad
-disminuyeron entre 2010 y 2021, con el descenso más pronunciado en los
-grupos de 15 a 29 años, lo que indica una reducción significativa de la
-fecundidad adolescente y juvenil. La edad media de la fecundidad mostró
-un ligero desplazamiento hacia edades más tardías, patrón coincidente
-con el observado a nivel nacional.
- 
-La comparativa México–Guerrero evidencia que, aunque ambos muestran
-tendencias similares de descenso, Guerrero mantiene una TGF
-consistentemente superior a la nacional, reflejo de sus condiciones
-socioeconómicas estructurales. Ambas se encuentran en trayectoria de
-convergencia hacia el nivel de reemplazo.
- 
+
+El análisis de fecundidad revela una caída sostenida y acelerada. Las Tasas Específicas de Fecundidad de todos los grupos de edad disminuyeron entre 2010 y 2021, con el descenso más pronunciado en los grupos de 15 a 29 años, lo que indica una reducción significativa de la fecundidad adolescente y juvenil. La edad media de la fecundidad mostró un ligero desplazamiento hacia edades más tardías, patrón coincidente con el observado a nivel nacional.
+
+La comparativa México–Guerrero evidencia que, aunque ambos muestran tendencias similares de descenso, Guerrero mantiene una TGF consistentemente superior a la nacional, reflejo de sus condiciones socioeconómicas estructurales. Ambas se encuentran en trayectoria de convergencia hacia el nivel de reemplazo.
+
 ### Mortalidad infantil estimada: Método Brass
- 
-La estimación indirecta por Método Brass con datos del Censo 2020
-sitúa la probabilidad de muerte antes del primer año de vida $q(1)$
-en aproximadamente 21.6 por cada 1,000 nacidos vivos hacia 2019, y
-$q(5)$ en 29.6 por cada 1,000 hacia 2014. Estos valores son coherentes
-con el nivel de marginación del estado y ofrecen una perspectiva
-histórica complementaria a las tablas de vida de período construidas
-para 2010, 2019 y 2021. La tendencia decreciente de $q(x)$ a lo largo
-del tiempo de referencia confirma la mejora gradual en la sobrevivencia
-infantil observada durante la década previa a la pandemia.
- 
+
+La estimación indirecta por Método Brass con datos del Censo 2020 sitúa la probabilidad de muerte antes del primer año de vida $q(1)$ en aproximadamente 21.6 por cada 1,000 nacidos vivos hacia 2019, y $q(5)$ en 29.6 por cada 1,000 hacia 2014. Estos valores son coherentes con el nivel de marginación del estado y ofrecen una perspectiva histórica complementaria a las tablas de vida de período construidas para 2010, 2019 y 2021. La tendencia decreciente de $q(x)$ a lo largo del tiempo de referencia confirma la mejora gradual en la sobrevivencia infantil observada durante la década previa a la pandemia.
+
 ### Conclusión
- 
-Los métodos demográficos aplicados en este proyecto — pirámides
-poblacionales, tablas de vida, análisis de fecundidad y estimación
-indirecta de mortalidad — demuestran con precisión cómo los
-determinantes sociales actúan de forma conjunta sobre la dinámica de
-una población. Guerrero presenta simultáneamente una transición
-demográfica avanzada en fecundidad y una estructura de mortalidad
-distorsionada por la violencia estructural y la marginación crónica.
- 
-El hallazgo más contundente es que la pandemia de COVID-19 borró en un
-solo año casi cinco años de avances acumulados en esperanza de vida
-masculina. Esto no es un fenómeno puramente sanitario: es el resultado
-de décadas de subinversión en salud, infraestructura y desarrollo social
-en una de las entidades más vulnerables del país. Los modelos
-matemáticos permiten proyectar trayectorias futuras, pero los datos
-históricos son categóricos: sin intervención estructural en los
-determinantes sociales de la salud, Guerrero continuará siendo un
-estado demográficamente frágil frente a cualquier choque externo.
+
+Los métodos demográficos aplicados en este proyecto — pirámides poblacionales, tablas de vida, análisis de fecundidad y estimación indirecta de mortalidad — demuestran con precisión cómo los determinantes sociales actúan de forma conjunta sobre la dinámica de una población. Guerrero presenta simultáneamente una transición demográfica avanzada en fecundidad y una estructura de mortalidad distorsionada por la violencia estructural y la marginación crónica.
+
+El hallazgo más contundente es que la pandemia de COVID-19 borró en un solo año casi cinco años de avances acumulados en esperanza de vida masculina. Esto no es un fenómeno puramente sanitario: es el resultado de décadas de subinversión en salud, infraestructura y desarrollo social en una de las entidades más vulnerables del país. Los modelos matemáticos permiten proyectar trayectorias futuras, pero los datos históricos son categóricos: sin intervención estructural en los determinantes sociales de la salud, Guerrero continuará siendo un estado demográficamente frágil frente a cualquier choque externo.
 
 ## Referencias
 
