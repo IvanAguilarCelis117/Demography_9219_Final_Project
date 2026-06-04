@@ -32,7 +32,7 @@ que este proyecto documenta con herramientas formales.
 ## Diagrama de flujo metodológico
  
 <p align="center">
-  <img src="data/diagrama_flujo_tablas_vida.png" width="500"
+  <img src="Data/Diagrama_de_flujo.png" width="500"
        alt="Diagrama de flujo: construcción de tablas de vida"/>
 </p>
 
