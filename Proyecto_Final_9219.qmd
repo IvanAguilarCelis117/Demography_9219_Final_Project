@@ -151,9 +151,9 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 ## a) Introducción
 
-El presente documento tiene como objetivo principal analizar la estructura poblacional y la dinámica demográfica del estado de Guerrero a lo largo de distintos periodos (2010, 2019 y 2021). A través del uso de proyecciones oficiales y registros vitales, con datos tomados del INEGI pricipalmente, se examinan herramientas demográficas como las pirámides poblacionales, los modelos de crecimiento exponencial y la construcción matemática de tablas de vida.
+El presente documento tiene como objetivo principal analizar la estructura poblacional y la dinámica demográfica del estado de Guerrero a lo largo de distintos periodos (2010, 2019 y 2021). A través del uso de proyecciones oficiales y registros vitales, con datos tomados del INEGI principalmente, se examinan herramientas demográficas como las pirámides poblacionales, los modelos de crecimiento exponencial y la construcción matemática de tablas de vida.
 
-El estudio de la estructura por edad y sexo permite comprender las características fundamentales de la población, observando la transición de una demografía de alta fecundidad durante 1970, hacia una estructura más envejecida en años recientes. Asimismo, se evalúa cómo fenómenos sistémicos e históricos en el aspecto social, tales como la alta marginación, la sobremortalidad masculina por violencia estructural y el impacto de la pandemia de COVID-19 en 2021, han moldeado la esperanza de vida en la entidad. Para contextualizar metodológicamente estos hallazgos, se incluye también una breve comparativa internacional que sirve de referencia para analizar el comportamiento esperado de las tasas específicas de mortalidad.
+El estudio de la estructura por edad y sexo permite comprender las características fundamentales de la población, observando la transición de una demografía de alta fecundidad durante 1970, hacia una estructura más envejecida en años recientes. Asimismo, se evalúa cómo fenómenos sistémicos e históricos en el aspecto social, tales como la alta marginación, la sobremortalidad masculina por violencia estructural y el impacto de la pandemia de COVID-19 en 2021 han moldeado la esperanza de vida en la entidad. Para contextualizar metodológicamente estos hallazgos, se incluye también una breve comparativa internacional que sirve de referencia para analizar el comportamiento esperado de las tasas específicas de mortalidad.
 
 ## Contexto de Guerrero: violencia y mortalidad
 
@@ -167,7 +167,7 @@ Para 2019, en el punto máximo de la crisis de violencia nacional, la tasa de ho
 
 ### Indicador 2 — Índice de marginación
 
-Según CONAPO (2020), Guerrero ocupa el **primer lugar nacional en marginación**, con un índice de 0.40 que significa que el estado tiene un grado **muy alto** en esta. La marginación implica limitaciones severas en el acceso a servicios de salud, lo que se traduce en una limitante en el caso de respuesta ante enfermedades evitables y, en particular, ante la pandemia de COVID-19 que empezó en 2020, hubo poco acceso a estos servicios, pero además en este tipo de localidades lograron contener la enfermedad, debido a la poca interacción con la sociedad causada por su aislamiento. La combinación de alta violencia y alta marginación configura un perfil de mortalidad que distingue a Guerrero del resto del país y que será visible en la comparación de las tablas de vida entre 2010, 2019 y 2021.
+Según CONAPO (2020), Guerrero ocupa el **primer lugar nacional en marginación**, con un índice de 0.40 que significa que el estado tiene un grado **muy alto en este indicador**. La marginación implica limitaciones severas en el acceso a servicios de salud, lo que se traduce en una limitante en el caso de respuesta ante enfermedades evitables y, en particular, las comunidades de alta marginación tuvieron poco acceso a servicios de salud; sin embargo, su aislamiento geográfico también limitó la propagación inicial del virus. La combinación de alta violencia y alta marginación configura un perfil de mortalidad que distingue a Guerrero del resto del país y que será visible en la comparación de las tablas de vida entre 2010, 2019 y 2021.
 
 ## b) Diagrama de flujo
 
@@ -187,7 +187,7 @@ $$A = 1 - \frac{B - D}{N}$$ $B$ y $D$ son nacimientos y defunciones respectivame
 
 donde la tasa de crecimiento $r$ se obtiene como:
 
-$$r = \frac{1}{n} \cdot \frac{log(N)}{log(0)}$$
+$$r = \frac{1}{n} \cdot \ln\left(\frac{N(t+n)}{N(t)}\right)$$
 
 ### Tasa central de mortalidad
 
@@ -216,7 +216,7 @@ $$_np_x = 1 - _nq_x$$
 
 Partiendo de una raíz $l_0 = 100{,}000$ sobrevivientes, las columnas de la tabla de vida se calculan secuencialmente:
 
-**Sobrevivientes al inicio del intervalo:** $$l_{x+n} = l_x \cdot -np_x$$
+**Sobrevivientes al inicio del intervalo:** $$l_{x+n} = l_x \cdot np_x$$
 
 **Muertes en el intervalo:** $$_nd_x = l_x \cdot _nq_x$$
 
@@ -1284,7 +1284,7 @@ tgf_gro <- data.frame(
 
 ```
 
-```{r, echo = FALSE, results = 'markup'}
+```{r, echo = FALSE, results = 'hide'}
 
 cat("=== Población femenina a mitad de año (N) — para Excel TGF/TBR/TNR ===\n\n")
 
@@ -1383,7 +1383,7 @@ tgf_comp %>%
 
 ```
 
-Guerrero mantiene una TGF sistemáticamente superior a la nacional en los tres periodos, aunque ambas convergen hacia el nivel de reemplazo. La brecha se ha reducido: en 2010 la diferencia era de aproximadamente 1.0 hijo por mujer, mientras que en 2021 se ha acortado a menos de 0.5. Esta convergencia sugiere que la transición demográfica en Guerrero se está acelerando, con un rezago histórico de una o dos décadas respecto al promedio nacional.
+Guerrero mantiene una TGF sistemáticamente superior a la nacional en los tres periodos, aunque ambas convergen hacia el nivel de reemplazo. La brecha se ha reducido: en 2010 la diferencia era de 1.6 hijo por mujer, mientras que en 2021 se ha acortado a menos de 0.5. Esta convergencia sugiere que la transición demográfica en Guerrero se está acelerando, con un rezago histórico de una o dos décadas respecto al promedio nacional.
 
 ```{r, echo = FALSE, fig.height=5, fig.width=9}
 
@@ -2573,31 +2573,119 @@ y juvenil es el principal diferenciador entre ambas poblaciones.
 
 ### Tendencia pre-pandemia (2010–2019)
 
-Entre 2010 y 2019, Guerrero mostró avances modestos pero sostenidos en sus indicadores demográficos. La esperanza de vida al nacer aumentó 1.0 año para los hombres (de 73.3 a 74.3 años) y 1.2 años para las mujeres (de 80.2 a 81.4 años). En paralelo, la Tasa Global de Fecundidad descendió de forma pronunciada, acercándose al nivel de reemplazo generacional (2.1 hijos por mujer), lo que refleja el avance de la transición demográfica en el estado.
+Entre 2010 y 2019, Guerrero mostró avances modestos pero sostenidos en
+sus indicadores demográficos. La esperanza de vida al nacer aumentó 1.0
+año para los hombres (de 73.32 a 74.30 años) y 1.15 años para las
+mujeres (de 80.25 a 81.40 años), reflejando una mejora gradual en las
+condiciones de salud del estado. Las tasas brutas de mortalidad
+descendieron en ambos sexos durante el periodo, y las curvas
+logarítmicas de $m_x$ muestran que la reducción fue generalizada en
+todos los grupos de edad, con excepción del tramo de 15 a 44 años en
+hombres, donde la joroba de la violencia permaneció persistente.
 
-Sin embargo, estos progresos ocurrieron en un contexto estructuralmente adverso. La tasa de homicidios de Guerrero en 2010 triplicaba el promedio nacional, lo que se traduce en una joroba característica en las curvas de mortalidad masculina de 20 a 34 años visible en los tres años analizados. La estimación indirecta por Método Brass confirma que hacia 2016, aproximadamente 25 de cada 1,000 niños nacidos vivos en Guerrero morían antes de cumplir 3 años — un nivel elevado respecto al promedio nacional, consistente con el primer lugar en marginación que ocupa el estado según CONAPO (2020).
-
-### Impacto del COVID-19 en 2021
-
-El año 2021 constituye el hallazgo central del análisis. La esperanza de vida masculina cayó 5.6 años en un solo año (de 74.3 a 68.7 años), y la femenina 4.9 años (de 81.4 a 76.5 años). Esta caída supera el promedio nacional de 3 a 4 años y representa el retroceso más severo registrado en el estado en el periodo analizado.
-
-El exceso de mortalidad de 2021 se explica por la confluencia de dos factores: primero, un sistema de salud ya debilitado por la alta marginación que tuvo menor capacidad de respuesta ante la pandemia; segundo, la violencia estructural continuó elevando las tasas masculinas de 15 a 44 años, como se observa en la gráfica de $\log(m_x)$. La curva de $d_x$ muestra además un desplazamiento del pico de defunciones hacia edades adultas medias, evidenciando la sobremortalidad atípica del año pandémico.
+Este avance ocurrió en un contexto estructuralmente adverso. La tasa de
+homicidios de Guerrero en 2010 triplicaba el promedio nacional (63 vs
+19 por cada 100 mil habitantes), y la tabla de vida de causa eliminada
+para 2019 cuantifica su efecto: si los homicidios hubieran sido
+eliminados como causa de muerte, la esperanza de vida masculina habría
+aumentado 3.35 años adicionales (de 74.30 a 77.65 años), y la femenina
+1.27 años (de 81.40 a 82.67 años). Esto confirma que la violencia
+estructural es el principal factor de distorsión de la mortalidad
+masculina en el estado.
 
 ### Fecundidad: transición acelerada
 
-El análisis de fecundidad revela una caída sostenida y acelerada. Las Tasas Específicas de Fecundidad de todos los grupos de edad disminuyeron entre 2010 y 2021, con el descenso más pronunciado en los grupos de 15 a 29 años, lo que indica una reducción significativa de la fecundidad adolescente y juvenil. La edad media de la fecundidad mostró un ligero desplazamiento hacia edades más tardías, patrón coincidente con el observado a nivel nacional.
+El análisis de fecundidad revela una caída sostenida y pronunciada. La
+Tasa Global de Fecundidad pasó de 3.68 hijos por mujer en 2010 a 2.35
+en 2019 y 2.08 en 2021, cruzando prácticamente el umbral de reemplazo
+generacional (2.1) en el último año analizado. La Tasa Bruta de
+Reproducción descendió de 1.79 a 1.15 hijas por mujer entre 2010 y
+2019, y la Tasa Neta de Reproducción — que incorpora la mortalidad
+femenina — pasó de 1.74 a 1.11, manteniéndose por encima de 1 en ambos
+años, lo que confirma que la generación aún se reemplaza, pero el
+margen se redujo drásticamente en una sola década.
 
-La comparativa México–Guerrero evidencia que, aunque ambos muestran tendencias similares de descenso, Guerrero mantiene una TGF consistentemente superior a la nacional, reflejo de sus condiciones socioeconómicas estructurales. Ambas se encuentran en trayectoria de convergencia hacia el nivel de reemplazo.
+El descenso fue especialmente pronunciado en los grupos de 15 a 29
+años: la TEF del grupo 15–19 bajó de 104.34 a 76.75 por mil, y la del
+grupo 20–24 de 185.82 a 126.99 por mil entre 2010 y 2019. La cúspide
+de fecundidad se mantiene en el grupo 20–24 en los tres periodos,
+a diferencia del promedio nacional donde ya se desplazó al grupo 25–29,
+lo que evidencia el rezago relativo de Guerrero en la postergación de
+la maternidad. La edad media de la fecundidad es consistentemente
+menor en Guerrero que en México, y la brecha respecto a Noruega —
+donde la cúspide está en 30–34 años y la TGF es de 1.53 — ilustra la
+distancia que separa al estado de una transición demográfica completada.
+
+La demostración del umbral de reemplazo con datos propios de Guerrero
+muestra que la sobrevivencia femenina hasta la edad reproductiva
+$p(\lambda)$ fue de 0.9762 en 2010 y 0.9784 en 2019, lo que sitúa el
+umbral específico de reemplazo del estado en 2.10 y 2.09 hijos por
+mujer respectivamente — prácticamente idéntico al valor universal de
+2.1, y superado holgadamente en 2010 (excedente de +1.56) aunque ya
+muy cercano en 2019 (excedente de +0.26).
 
 ### Mortalidad infantil estimada: Método Brass
 
-La estimación indirecta por Método Brass con datos del Censo 2020 sitúa la probabilidad de muerte antes del primer año de vida $q(1)$ en aproximadamente 21.6 por cada 1,000 nacidos vivos hacia 2019, y $q(5)$ en 29.6 por cada 1,000 hacia 2014. Estos valores son coherentes con el nivel de marginación del estado y ofrecen una perspectiva histórica complementaria a las tablas de vida de período construidas para 2010, 2019 y 2021. La tendencia decreciente de $q(x)$ a lo largo del tiempo de referencia confirma la mejora gradual en la sobrevivencia infantil observada durante la década previa a la pandemia.
+La estimación indirecta con datos del Censo 2020 sitúa la mortalidad
+infantil en Guerrero en una trayectoria descendente a lo largo del
+periodo de referencia. La estimación más confiable metodológicamente
+— la del grupo de madres de 25–29 años — arroja $q(3) = 0.0252$,
+es decir, aproximadamente 25.2 niños fallecidos por cada 1,000 nacidos
+vivos antes de cumplir 3 años, correspondiente al año de referencia
+2016.5. En el extremo más reciente, $q(1) = 0.0237$ hacia 2019
+indica que cerca de 23.7 por mil niños nacidos vivos morían antes
+de cumplir su primer año de vida. En el extremo histórico, $q(20) =
+0.0744$ hacia 2005 refleja las condiciones de mayor mortalidad de
+principios de siglo. La tendencia decreciente es consistente con la
+mejora de la esperanza de vida documentada en las tablas de vida de
+período para 2010 y 2019.
+
+### Impacto del COVID-19 en 2021
+
+El año 2021 constituye el hallazgo central del análisis. La esperanza
+de vida masculina cayó 5.64 años en un solo año (de 74.30 a 68.66
+años), y la femenina 4.87 años (de 81.40 a 76.53 años). Esta caída
+supera el promedio nacional de 3 a 4 años y representa el retroceso
+más severo registrado en el estado en el periodo analizado, borrando
+en doce meses prácticamente una década de avances acumulados.
+
+Las curvas de $\log(m_x)$ para 2021 se ubican consistentemente por
+encima de 2010 y 2019 a partir de los 50 años en ambos sexos, con
+el incremento más pronunciado en los grupos de 60 a 74 años. La
+distribución de muertes $d_x$ muestra un desplazamiento del pico de
+defunciones hacia edades adultas medias, evidenciando la sobremortalidad
+atípica del periodo pandémico. Al mismo tiempo, la joroba masculina de
+violencia de 20 a 44 años se mantuvo, lo que indica que la pandemia
+se sumó a los factores de mortalidad preexistentes sin desplazarlos,
+generando un perfil de mortalidad inusualmente elevado en prácticamente
+todos los grupos de edad.
 
 ### Conclusión
 
-Los métodos demográficos aplicados en este proyecto — pirámides poblacionales, tablas de vida, análisis de fecundidad y estimación indirecta de mortalidad — demuestran con precisión cómo los determinantes sociales actúan de forma conjunta sobre la dinámica de una población. Guerrero presenta simultáneamente una transición demográfica avanzada en fecundidad y una estructura de mortalidad distorsionada por la violencia estructural y la marginación crónica.
+Los métodos demográficos aplicados en este proyecto — pirámides
+poblacionales, crecimiento exponencial, tablas de vida, tasas de
+reproducción, comparativa internacional, estimación indirecta por
+Método Brass y tabla de vida de causa eliminada — demuestran con
+precisión cómo los determinantes sociales actúan de forma conjunta
+sobre la dinámica de una población. El modelo de crecimiento exponencial calculado entre los censos de 2010 y 2020 sitúa la tasa de crecimiento de Guerrero en aproximadamente 0.44% anual, notablemente inferior al 1.15% nacional, lo que refleja la combinación de descenso de fecundidad y emigración sostenida. Guerrero presenta simultáneamente una transición demográfica avanzada en fecundidad, con una TGF que
+descendió de 3.68 a 2.08 hijos por mujer en once años, y una estructura
+de mortalidad distorsionada por la violencia estructural y la
+marginación crónica, que en 2019 le costaba a un hombre guerrerense
+3.35 años de esperanza de vida.
 
-El hallazgo más contundente es que la pandemia de COVID-19 borró en un solo año casi cinco años de avances acumulados en esperanza de vida masculina. Esto no es un fenómeno puramente sanitario: es el resultado de décadas de subinversión en salud, infraestructura y desarrollo social en una de las entidades más vulnerables del país. Los modelos matemáticos permiten proyectar trayectorias futuras, pero los datos históricos son categóricos: sin intervención estructural en los determinantes sociales de la salud, Guerrero continuará siendo un estado demográficamente frágil frente a cualquier choque externo.
+El hallazgo más contundente es que la pandemia de COVID-19 borró en un
+solo año 5.64 años de esperanza de vida masculina y 4.87 años de
+esperanza de vida femenina. Esto no es un fenómeno puramente sanitario:
+es el resultado de décadas de subinversión en salud, infraestructura y
+desarrollo social en una de las entidades más vulnerables del país,
+que ocupa el primer lugar nacional en marginación. 
+
+La comparativa con Noruega ilustra la magnitud de esta brecha: en 2019, antes de la pandemia, Guerrero ya registraba una esperanza de vida masculina aproximadamente 10 años menor que la noruega, reflejando décadas de desigualdad en acceso a salud y condiciones de vida.
+
+Los modelos matemáticos permiten proyectar trayectorias futuras, pero
+los datos históricos son categóricos: sin intervención estructural en
+los determinantes sociales de la salud, Guerrero continuará siendo un
+estado demográficamente frágil frente a cualquier choque externo.
 
 ## Referencias
 
