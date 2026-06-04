@@ -277,7 +277,6 @@ quarto render Proyecto_Final_9219.qmd
  
 | Dato | Fuente | Incluido |
 |------|--------|:--------:|
-| Población 1950–2070 | CONAPO | ✓ |
 | Defunciones Guerrero 1990–2024 | SINAIS/INEGI | ✓ |
 | Muertes internacionales | UN WPP 2024 | ✓ |
 | Población internacional | UN WPP 2024 | ✓ |
