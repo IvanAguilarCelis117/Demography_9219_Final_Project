@@ -147,23 +147,37 @@ Demography_9219_Final_Project/
 ├── Proyecto_Final_9219.qmd              # Documento fuente en Quarto
 ├── Proyecto_Final_9219.pdf              # Informe final renderizado
 ├── README.md
-└── data/
-    ├── 00_Pob_Mitad_1950_2070.csv       # Proyecciones CONAPO
-    ├── INEGI(Defunciones Guerrero).xlsx  # Defunciones SINAIS/INEGI
-    ├── WPP2024_deaths_m.xlsx            # Muertes ONU — hombres
-    ├── WPP2024_deaths_f.xlsx            # Muertes ONU — mujeres
-    ├── WPP2024_population_m.xlsx        # Población ONU — hombres
-    ├── WPP2024_population_f.xlsx        # Población ONU — mujeres
-    ├── WPP2024_ASFR_by_Age5.xlsx        # TEF por grupo quinquenal ONU
-    ├── Mortalidad_Nacional.xlsx         # Mortalidad Nacional INEGI
-    ├── Fecundidad_Nacional.xlsx        # Fecundidad Nacional INEGI
-    ├── Mx_ARG_GUA.csv                   # Tasas Argentina y Guatemala
-    ├── diagrama_flujo_tablas_vida.png   # Diagrama de flujo
-    ├── Foto_de_Guerrero.jpg             # Mapa para portada
-    ├── UNAM-Logo.png                    # Logo UNAM
-    └── FC-Logo.png                      # Logo FC (ver nota abajo)
-```
- 
+├── data/
+│   ├── 00_Pob_Mitad_1950_2070.csv            # Proyecciones CONAPO
+│   ├── Diagrama_de_flujo.png                  # Diagrama de flujo
+│   ├── FC-Logo.png                            # Logo FC (ver nota abajo)
+│   ├── FC-Logo.webp                           # Logo FC original
+│   ├── Fecundidad_Nacional.xlsx               # Fecundidad Nacional INEGI
+│   ├── Foto de Guerrero.jpg                   # Mapa para portada
+│   ├── INEGI_defunciones_homicidio.xls        # Defunciones por homicidio
+│   ├── INEGI_exporta_N...tos_Guerrero.xls     # Nacimientos Guerrero INEGI
+│   ├── INEGI_Guerrero_2010.xls                # Datos INEGI Guerrero 2010
+│   ├── INEGI_Guerrero_2020.xls                # Datos INEGI Guerrero 2020
+│   ├── INEGI(Defunciones Guerrero).xls        # Defunciones SINAIS/INEGI (.xls)
+│   ├── INEGI(Defunciones Guerrero).xlsx       # Defunciones SINAIS/INEGI (.xlsx)
+│   ├── INEGI(Población Guerrero 2020).xls     # Población Guerrero 2020
+│   ├── INEGI(Población Guerrero).xls          # Población Guerrero INEGI
+│   ├── Mortalidad_Nacional.xlsx               # Mortalidad Nacional INEGI
+│   ├── Mx_ARG_GUA.csv                         # Tasas Argentina y Guatemala
+│   ├── UNAM-Logo.png                          # Logo UNAM
+│   ├── WPP2024_ASFR_by_Age5.xlsx             # TEF por grupo quinquenal ONU
+│   ├── WPP2024_deaths_f.xlsx                  # Muertes ONU — mujeres
+│   ├── WPP2024_deaths_m.xlsx                  # Muertes ONU — hombres
+│   ├── WPP2024_population_f.xlsx              # Población ONU — mujeres
+│   └── WPP2024_population_m.xlsx              # Población ONU — hombres
+└── Output/
+    ├── Diagrama_de_Lexis_Guerrero.xlsx        # Diagrama de Lexis
+    ├── LT_CausaEliminada_Guerrero_2019.xlsx   # Tabla vida causa eliminada 2019
+    ├── LT_CausaEliminada_Guerrero_2020.xlsx   # Tabla vida causa eliminada 2020
+    ├── ProyectoFinal_AguilarRivera.xlsx        # Excel proyecto final
+    ├── ProyectoFinal_av...guilarRivera.xlsx    # Excel proyecto final (alt)
+    └── TGF_TBR_TNR_Guerrero_2010_2019.xlsx   # TGF, TBR y TNR Guerrero
+
 > **Nota sobre FC-Logo:** el logo original está en `.webp`, que LaTeX no soporta.
 > Conviértelo a PNG una sola vez antes de renderizar:
 > ```bash
@@ -193,9 +207,9 @@ Demography_9219_Final_Project/
  
 | Año  | TGF (hijos/mujer) | EMF (años) |
 |------|:-----------------:|:----------:|
-| 2010 | ~3.2              | ~26.5      |
-| 2019 | ~2.5              | ~27.2      |
-| 2021 | ~2.2              | ~27.5      |
+| 2010 | ~3.68              | ~26.5      |
+| 2019 | ~2.35              | ~27.2      |
+| 2021 | ~2.08              | ~27.5      |
  
 ### Mortalidad infantil estimada — Método Brass
  
